@@ -14,42 +14,43 @@ function kartyaKattintas() {
     document.querySelector('.wrapper1').classList.add('eltuntet');
     document.querySelector('.wrapper2').classList.remove('eltuntet');
     document.querySelector('.wrapper2').classList.add('megjelenitGrid');
-    document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.remove('alap');      
-    document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.add('szint_' + activeKartya);    
+    document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.remove('alap');    
 }
 
 document.getElementById('kartya_01').addEventListener('click', function() {
     activeKartya = 1;
-    kep = './img/nyuszi_karakter.webp';
-    document.querySelector('.kep').src = kep;
+    document.querySelector('.kartya__test-kep').innerHTML = nyuszi;
+    document.querySelector('.kartya__test-kep').style.backgroundColor = '#dfecf1';
     kartyaKattintas();
     fajlBeolvasas();
 });
 document.getElementById('kartya_02').addEventListener('click', function() {
     activeKartya = 2;
-    kep = './img/csacsi_karakter.webp';
-    document.querySelector('.kep').src = kep;
+    document.querySelector('.kartya__test-kep').innerHTML = csacsi;
+    document.querySelector('.kartya__test-kep').style.backgroundColor = '#dfebf7';
     kartyaKattintas();
     fajlBeolvasas();
 });
 document.getElementById('kartya_03').addEventListener('click', function() {
     activeKartya = 3;
-    kep = './img/maci_karakter.webp';
-    document.querySelector('.kep').src = kep;
+    document.querySelector('.kartya__test-kep').innerHTML = maci;
+    document.querySelector('.kartya__test-kep').style.backgroundColor = '#f0dbcd';
     kartyaKattintas();
     fajlBeolvasas();
 });
 document.getElementById('kartya_04').addEventListener('click', function() {
     activeKartya = 4;
-    kep = './img/tigris_karakter.webp';
-    document.querySelector('.kep').src = kep;
+    document.querySelector('.kartya__test-kep').innerHTML = tigris;
+    document.querySelector('.kartya__test-kep').style.backgroundColor = '#fbefe1';
+    document.querySelector('.kartya__test-kep #tigris').style.cssText = 'width: 120%; margin-left: -3rem;';
     kartyaKattintas();
     fajlBeolvasas();
 });
 document.getElementById('kartya_05').addEventListener('click', function() {
     activeKartya = 5;
-    kep = './img/oroszlan_karakter.webp';
-    document.querySelector('.kep').src = kep;
+    document.querySelector('.kartya__test-kep').innerHTML = oroszlan;
+    document.querySelector('.kartya__test-kep').style.backgroundColor = '#f0e8e2';
+    document.querySelector('.kartya__test-kep #oroszlan').style.marginLeft = '-1rem';
     kartyaKattintas();
     fajlBeolvasas();
 });
