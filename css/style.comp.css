@@ -59,7 +59,7 @@ body {
 .section__kartya {
   display: flex; }
   .section__kartya .kartya {
-    width: 16rem;
+    width: 17rem;
     box-shadow: 0px 2px 8px #dad0d0;
     cursor: pointer;
     border-radius: 1rem;
@@ -71,7 +71,6 @@ body {
       z-index: 2; }
     .section__kartya .kartya__kep {
       position: relative;
-      width: 17rem;
       transition: height .5s;
       overflow: hidden;
       border-radius: 1rem; }
@@ -104,7 +103,7 @@ body {
         padding: 2rem;
         background-color: #fbefe1; }
         .section__kartya .kartya__kep-tigris .tigris_kep {
-          width: auto;
+          width: 13rem;
           height: 14rem; }
       .section__kartya .kartya__kep-oroszlan {
         padding: 4rem;
