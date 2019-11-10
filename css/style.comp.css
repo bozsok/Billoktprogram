@@ -61,54 +61,59 @@ body {
     cursor: pointer;
     transition: transform .5s; }
     .section__kartya .kartya:not(:last-child) {
-      margin-right: 2rem; }
+      margin-right: 3rem; }
     .section__kartya .kartya:hover {
-      transform: scale(1.2); }
-      .section__kartya .kartya:hover .kartya__kep {
-        height: 16rem; }
-      .section__kartya .kartya:hover .kartya__torzs {
-        height: 8rem; }
-      .section__kartya .kartya:hover .kartya__szint,
-      .section__kartya .kartya:hover .kartya__szam {
-        transform: translateY(-1rem); }
-      .section__kartya .kartya:hover .kartya__szam {
-        font-size: 3rem; }
-      .section__kartya .kartya:hover .kartya__info {
-        opacity: 1;
-        transform: translateY(-2rem); }
+      transform: scale(1.2);
+      z-index: 2; }
     .section__kartya .kartya__kep {
       position: relative;
-      height: 12rem;
-      color: #fff;
+      width: 17rem;
       transition: height .5s;
-      overflow: hidden; }
-    .section__kartya .kartya__torzs {
-      height: 12rem;
-      padding: 1.5rem;
-      text-align: center;
-      transition: height .5s;
-      overflow: hidden; }
-    .section__kartya .kartya__szint {
-      font-family: "Open Sans Condensed", sans-serif;
-      font-size: 2.1rem;
-      text-transform: uppercase;
-      transition: transform .5s; }
-    .section__kartya .kartya__szam {
-      font-size: 5rem;
-      text-transform: uppercase;
-      transition: all .5s; }
-    .section__kartya .kartya__leiras {
-      text-align: center;
-      color: #3d84c5;
-      font-weight: 600;
-      font-size: 1.4rem;
-      transition: all .5s; }
-    .section__kartya .kartya__info {
-      width: 160px;
-      position: absolute;
-      margin-top: 5rem;
-      opacity: 0;
-      transition: all .5s; }
+      overflow: hidden;
+      border-radius: 1rem; }
+      .section__kartya .kartya__kep > * {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 25rem; }
+      .section__kartya .kartya__kep-nyuszi {
+        padding: 2rem;
+        background-color: #dfecf1; }
+        .section__kartya .kartya__kep-nyuszi .nyuszi_kep {
+          width: 9rem;
+          height: auto; }
+      .section__kartya .kartya__kep-csacsi {
+        padding: 2rem;
+        background-color: #dfebf7; }
+        .section__kartya .kartya__kep-csacsi .csacsi_kep {
+          width: 12rem;
+          height: auto; }
+      .section__kartya .kartya__kep-maci {
+        padding: 2rem;
+        background-color: #f0dbcd; }
+        .section__kartya .kartya__kep-maci .maci_kep {
+          margin-top: 1rem;
+          width: 11rem;
+          height: auto; }
+      .section__kartya .kartya__kep-tigris {
+        padding: 4rem;
+        background-color: #fbefe1; }
+        .section__kartya .kartya__kep-tigris .tigris_kep {
+          margin-top: 2.5rem;
+          width: 18rem;
+          height: auto; }
+      .section__kartya .kartya__kep-oroszlan {
+        padding: 4rem;
+        background-color: #f0e8e2; }
+        .section__kartya .kartya__kep-oroszlan .oroszlan_kep {
+          margin-right: 3rem;
+          width: 16rem;
+          height: auto; }
+      .section__kartya .kartya__kep .felirat {
+        font-family: "Open Sans Condensed", sans-serif;
+        font-size: 2.1rem;
+        text-transform: uppercase; }
 
 .eltuntet {
   display: none; }
@@ -207,25 +212,31 @@ body {
         height: 25rem;
         margin: 5rem;
         box-shadow: 0px 4px 20px #eee;
-        transition: .5s; }
+        transition: .5s;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly; }
         .feladatoldal__kezeles-kartya .kartya__test:hover {
           cursor: auto;
           transform: none; }
+        .feladatoldal__kezeles-kartya .kartya__test-kep {
+          height: 17rem;
+          border-top-left-radius: 1rem;
+          border-top-right-radius: 1rem; }
         .feladatoldal__kezeles-kartya .kartya__test-gomb {
-          width: 100%;
-          height: 50%;
           display: flex;
           justify-content: center;
           align-items: center; }
           .feladatoldal__kezeles-kartya .kartya__test-gomb .play {
             cursor: pointer;
-            padding: 1rem 3.5rem;
+            padding: .8rem 2.8rem;
             color: #BC4915;
             border: 1px solid #BC4915;
             border-radius: 3rem; }
           .feladatoldal__kezeles-kartya .kartya__test-gomb .pause {
             cursor: pointer;
-            padding: 1rem 3.5rem;
+            padding: .8rem 2.8rem;
             color: #BC4915;
             border: 1px solid #BC4915;
             border-radius: 3rem; }
@@ -271,7 +282,8 @@ body {
         width: 80rem;
         padding: 2rem;
         background-color: #eee;
-        word-break: break-all; }
+        word-break: break-all;
+        border-radius: 1rem; }
       .feladatoldal__feldolgozas-kiiratas .betu {
         position: absolute;
         top: 50%;
@@ -305,7 +317,8 @@ body {
         background-color: #eee;
         border: none;
         resize: none;
-        word-wrap: break-word; }
+        word-wrap: break-word;
+        border-radius: 1rem; }
 
 .wrapper3 {
   display: none;
