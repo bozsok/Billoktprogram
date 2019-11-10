@@ -30,12 +30,15 @@ body {
   width: 120rem;
   height: 70rem;
   background-color: #fff;
-  z-index: 2; }
+  z-index: 2;
+  border-radius: 1rem; }
   .fooldal__cim {
     padding: 1.5rem 4rem;
     text-transform: uppercase;
     font-size: 2rem;
-    background-color: #edcebe; }
+    background-color: #edcebe;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem; }
     .fooldal__cim span {
       font-weight: 800; }
   .fooldal__container {
@@ -183,13 +186,16 @@ body {
   grid-row: 2/3;
   grid-column: 2/3;
   display: flex;
-  position: relative; }
+  position: relative;
+  border-radius: 1rem; }
   .feladatoldal__navigacio {
     padding: 4rem 1.5rem;
     text-transform: uppercase;
     font-size: 2rem;
     background-color: #edcebe;
-    width: 8rem; }
+    width: 8rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem; }
     .feladatoldal__navigacio-nyil {
       cursor: pointer;
       transition: .3s; }
@@ -277,7 +283,9 @@ body {
     justify-content: flex-start;
     font-size: 2.2rem;
     font-weight: 800;
-    color: #2b2b2b; }
+    color: #2b2b2b;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem; }
     .feladatoldal__feldolgozas-kiiratas {
       height: 50%;
       padding: 3rem;
