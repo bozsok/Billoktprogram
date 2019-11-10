@@ -15,6 +15,7 @@ function kartyaKattintas() {
     document.querySelector('.wrapper1').classList.add('eltuntet');
     document.querySelector('.wrapper2').classList.remove('eltuntet');
     document.querySelector('.wrapper2').classList.add('megjelenitGrid');  
+    document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.remove('alap');
     document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.add('szint_' + activeKartya);    
 }
 
