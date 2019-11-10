@@ -8,6 +8,7 @@ var arany = 0;
 tovabbMegy = true;
 //Eltüntetjük a Pause gombot
 document.querySelector('.pause').style.display = 'none';
+document.querySelector('.wrapper2').classList.add('eltuntet');
 
 //Kártyakattintás műveletei
 function kartyaKattintas() {
