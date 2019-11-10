@@ -101,12 +101,11 @@ body {
           width: 11rem;
           height: auto; }
       .section__kartya .kartya__kep-tigris {
-        padding: 4rem;
+        padding: 2rem;
         background-color: #fbefe1; }
         .section__kartya .kartya__kep-tigris .tigris_kep {
-          margin-top: 2.5rem;
-          width: 18rem;
-          height: auto; }
+          width: auto;
+          height: 14rem; }
       .section__kartya .kartya__kep-oroszlan {
         padding: 4rem;
         background-color: #f0e8e2; }
@@ -147,36 +146,6 @@ body {
   width: 160px;
   height: 120px;
   background-image: url("../img/kezdo_1.webp");
-  background-size: cover; }
-
-.szint_1 {
-  width: 160px;
-  height: 120px;
-  background-image: url("../img/kezdo_1.webp");
-  background-size: cover; }
-
-.szint_2 {
-  width: 160px;
-  height: 120px;
-  background-image: url("../img/kezdo_2.webp");
-  background-size: cover; }
-
-.szint_3 {
-  width: 160px;
-  height: 120px;
-  background-image: url("../img/halado_1.webp");
-  background-size: cover; }
-
-.szint_4 {
-  width: 160px;
-  height: 120px;
-  background-image: url("../img/halado_2.webp");
-  background-size: cover; }
-
-.szint_5 {
-  width: 160px;
-  height: 120px;
-  background-image: url("../img/profi_1.webp");
   background-size: cover; }
 
 .feladatoldal {
@@ -227,9 +196,16 @@ body {
           cursor: auto;
           transform: none; }
         .feladatoldal__kezeles-kartya .kartya__test-kep {
-          height: 17rem;
+          padding-top: 2rem;
+          height: 18rem;
+          width: auto;
           border-top-left-radius: 1rem;
-          border-top-right-radius: 1rem; }
+          border-top-right-radius: 1rem;
+          overflow: hidden;
+          background-color: red; }
+          .feladatoldal__kezeles-kartya .kartya__test-kep svg {
+            height: 120%;
+            width: 100%; }
         .feladatoldal__kezeles-kartya .kartya__test-gomb {
           height: 8rem;
           display: flex;
