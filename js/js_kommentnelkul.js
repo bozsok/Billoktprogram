@@ -7,6 +7,7 @@ var arany = 0;
 
 tovabbMegy = true;
 document.querySelector('.pause').style.display = 'none';
+document.querySelector('.wrapper2').classList.add('eltuntet');
 
 function kartyaKattintas() {
     document.querySelector('.wrapper1').classList.remove('megjelenitGrid');
