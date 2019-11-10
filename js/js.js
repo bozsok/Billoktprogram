@@ -477,7 +477,7 @@ function beszolashoz() {
             } else if (activeKartya == 4) {
                 kep = './img/tigris_hiba_nelkul.webp';
                 document.querySelector('.kep').src = kep;
-                szoveg = "Itt jön a tigris, nála erõsebb nincs is!";
+                szoveg = "Itt jön a tigris, nála erősebb nincs is!";
             } else if (activeKartya == 5) {
                 kep = './img/oroszlan_hiba_nelkul.webp';
                 document.querySelector('.kep').src = kep;
