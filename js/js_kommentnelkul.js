@@ -12,7 +12,8 @@ function kartyaKattintas() {
     document.querySelector('.wrapper1').classList.remove('megjelenitGrid');
     document.querySelector('.wrapper1').classList.add('eltuntet');
     document.querySelector('.wrapper2').classList.remove('eltuntet');
-    document.querySelector('.wrapper2').classList.add('megjelenitGrid');      
+    document.querySelector('.wrapper2').classList.add('megjelenitGrid');
+    document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.remove('alap');      
     document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.add('szint_' + activeKartya);    
 }
 
@@ -435,7 +436,7 @@ function beszolashoz() {
             } else if (activeKartya == 4) {
                 kep = './img/tigris_hiba_nelkul.webp';
                 document.querySelector('.kep').src = kep;
-                szoveg = "Itt jön a tigris, nála erõsebb nincs is!";
+                szoveg = "Itt jön a tigris, nála erősebb nincs is!";
             } else if (activeKartya == 5) {
                 kep = './img/oroszlan_hiba_nelkul.webp';
                 document.querySelector('.kep').src = kep;

@@ -57,8 +57,9 @@ body {
   display: flex; }
   .section__kartya .kartya {
     width: 16rem;
-    box-shadow: 0px 4px 20px #eee;
+    box-shadow: 0px 2px 8px #dad0d0;
     cursor: pointer;
+    border-radius: 1rem;
     transition: transform .5s; }
     .section__kartya .kartya:not(:last-child) {
       margin-right: 3rem; }
@@ -133,7 +134,7 @@ body {
   pointer-events: auto; }
 
 .arnyek {
-  box-shadow: 0px 12px 40px #ddd !important; }
+  box-shadow: 0px 4px 20px #dad0d0 !important; }
 
 .szurke {
   color: grey;
@@ -205,18 +206,17 @@ body {
       height: 50%;
       width: 100%;
       display: flex;
-      align-content: center;
+      align-items: center;
       justify-content: center; }
       .feladatoldal__kezeles-kartya .kartya__test {
         width: 16rem;
         height: 25rem;
-        margin: 5rem;
-        box-shadow: 0px 4px 20px #eee;
+        box-shadow: 0px 2px 8px #dad0d0;
+        background-color: #edcebe;
         transition: .5s;
         border-radius: 1rem;
         display: flex;
-        flex-direction: column;
-        justify-content: space-evenly; }
+        flex-direction: column; }
         .feladatoldal__kezeles-kartya .kartya__test:hover {
           cursor: auto;
           transform: none; }
@@ -225,18 +225,23 @@ body {
           border-top-left-radius: 1rem;
           border-top-right-radius: 1rem; }
         .feladatoldal__kezeles-kartya .kartya__test-gomb {
+          height: 8rem;
           display: flex;
           justify-content: center;
-          align-items: center; }
+          align-items: center;
+          border-bottom-left-radius: 1rem;
+          border-bottom-right-radius: 1rem; }
           .feladatoldal__kezeles-kartya .kartya__test-gomb .play {
             cursor: pointer;
             padding: .8rem 2.8rem;
+            background-color: rgba(255, 255, 255, 0.8);
             color: #BC4915;
             border: 1px solid #BC4915;
             border-radius: 3rem; }
           .feladatoldal__kezeles-kartya .kartya__test-gomb .pause {
             cursor: pointer;
             padding: .8rem 2.8rem;
+            background-color: rgba(255, 255, 255, 0.8);
             color: #BC4915;
             border: 1px solid #BC4915;
             border-radius: 3rem; }
@@ -283,24 +288,27 @@ body {
         padding: 2rem;
         background-color: #eee;
         word-break: break-all;
-        border-radius: 1rem; }
+        border-radius: 1rem;
+        box-shadow: 0px 1px 6px #dad0d0; }
       .feladatoldal__feldolgozas-kiiratas .betu {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 12rem;
-        height: 16rem;
-        border: 15px solid #abbdcd;
+        width: 16rem;
+        height: 20rem;
+        border: 25px solid rgba(237, 206, 190, 0.8);
         background-color: rgba(238, 238, 238, 0.8);
         display: flex;
         justify-content: center;
         align-items: center;
         color: #2F9F13;
         font-family: 'Noto Serif', serif;
-        font-size: 8rem;
+        font-size: 10rem;
         font-weight: 700;
         opacity: 0;
+        border-radius: 1rem;
+        box-shadow: 0px 2px 8px #dad0d0;
         transition: .5s; }
       .feladatoldal__feldolgozas-kiiratas .betu_jon {
         opacity: 1;
@@ -318,7 +326,8 @@ body {
         border: none;
         resize: none;
         word-wrap: break-word;
-        border-radius: 1rem; }
+        border-radius: 1rem;
+        box-shadow: 0px 1px 6px #dad0d0; }
 
 .wrapper3 {
   display: none;
