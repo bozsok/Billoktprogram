@@ -115,7 +115,8 @@ function fajlBeolvasas() {
       if (this.readyState == 4 && this.status == 200) {     
         document.getElementById("kiir").innerHTML = this.responseText; //kiíratom a fájl tartalmát
         fajlTartalom = this.responseText; //beleteszem a fájl tartalmát egy változóba
-        document.getElementById('billentyuk').innerHTML = '0/' + fajlTartalom.length; //kiíratom a karakterek számát  
+        //document.getElementById('billentyuk').innerHTML = '0/' + fajlTartalom.length; //kiíratom a karakterek számát  
+        document.getElementById('billentyuk').innerHTML = `0/${fajlTartalom.length}`; //a fenti kiíratás frissebb módja (Template Literal) 
       }
     };
     //A szintnek megfelelő szöveg kiválasztása
@@ -139,7 +140,8 @@ function fajlBeolvasas() {
 //Betűnkénti beolvasás műveletei
 function betuBeolvasas () {
     document.getElementById('kiir').innerHTML = fajlTartalom;
-    document.getElementById('billentyuk').innerHTML = '0/' + fajlTartalom.length; //kiíratom a karakterek számát       
+    //document.getElementById('billentyuk').innerHTML = '0/' + fajlTartalom.length; //kiíratom a karakterek számát       
+    document.getElementById('billentyuk').innerHTML = `0/${fajlTartalom.length}`; //kiíratom a karakterek számát       
     //Kiíratjuk az első betűt a kis téglalapba
     document.getElementById('betu').innerHTML = fajlTartalom[i];
     
@@ -153,14 +155,15 @@ function betuBeolvasas () {
                 betu = String.fromCharCode(Unicode); //átalakítjuk a fenti unicode-ot karakterré
                 //ha kapunk valamilyen karaktert, kiíratjuk tömbbe
                 if (betu) {
-                    kiirtSzoveg.push(fajlTartalom[i]);
+                    kiirtSzoveg.push(fajlTartalom[i]); //kiirtSzoveg tömbbe íratom a karaktereket (vesszővel elválasztja)
                     begepeltSzoveg.push(betu);
                 }
                 //Ha nem azt a betűt ütjük le, amelyik megjelenik...
                 if (betu !== fajlTartalom[i]) {
                     hiba++; //...növelem a hibák számát
-                    kiirtSzoveg[i] = "<span style = 'color:red'>" + kiirtSzoveg[i] + "</span>"; //mgejelölöm pirossal a kiíratáskor a hibás karaktert
-                    begepeltSzoveg[i] = "<span style = 'color:red'>" + begepeltSzoveg[i] + "</span>";
+                    //kiirtSzoveg[i] = "<span style = 'color:red'>" + kiirtSzoveg[i] + "</span>"; //megjelölöm pirossal a kiíratáskor a hibás karaktert
+                    kiirtSzoveg[i] = `<span style = 'color:red'>${kiirtSzoveg[i]}</span>`; //a fenti kiíratás frissebb módja
+                    begepeltSzoveg[i] = `<span style = 'color:red'>${begepeltSzoveg[i]}</span>`;
                 }
                 document.querySelector('.kiir').innerHTML = kiirtSzoveg.join(''); //eltüntetem a vesszőket a kiíratáshoz a tömbből
                 document.querySelector('.begepel').innerHTML = begepeltSzoveg.join('');
@@ -174,101 +177,101 @@ function betuBeolvasas () {
                     document.getElementById('arany').innerHTML = arany + '%'; //kiíratom a megfelelő arányt
                     //Érdemjegy számítása
                     if (arany <= 29.99) {
-                        if (activeKartya == 1) {
-                            kep = './img/nyuszi_egyes.webp';
-                            document.querySelector('.kep').src = kep;
+                        if (activeKartya == 1) {                            
+                            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes; //megjelenítem a karaktert 
+                            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; //megjelenő SVG finomítása
                         } else if (activeKartya == 2) {
-                            kep = './img/csacsi_egyes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes; 
+                            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 3) {
-                            kep = './img/maci_egyes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = maci_egyes; 
+                            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 4) {
-                            kep = './img/tigris_egyes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = tigris_egyes; 
+                            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 5) {
-                            kep = './img/oroszlan_egyes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes; 
+                            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         }
                         document.getElementById('erdemjegy').innerHTML = 1;
                         szoveg = "Jááj! Mökfoksz bukni! Mára vége vann!";
                         beszolas();
                     } else if (arany >= 30 && arany <= 54.99) {
-                        if (activeKartya == 1) {
-                            kep = './img/nyuszi_kettes.webp';
-                            document.querySelector('.kep').src = kep;
+                        if (activeKartya == 1) {                            
+                            document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
+                            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                         } else if (activeKartya == 2) {
-                            kep = './img/csacsi_kettes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_kettes; 
+                            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 3) {
-                            kep = './img/maci_kettes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = maci_kettes; 
+                            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 4) {
-                            kep = './img/tigris_kettes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = tigris_kettes; 
+                            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 5) {
-                            kep = './img/oroszlan_kettes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes; 
+                            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         }
                         document.getElementById('erdemjegy').innerHTML = 2;
                         szoveg = "Vigyázzá, mer ha így haladol, mökbukol! Végezté márra!";
                         beszolas();
                     } else if (arany >= 55 && arany <= 74.99) {
-                        if (activeKartya == 1) {
-                            kep = './img/nyuszi_harmas.webp';
-                            document.querySelector('.kep').src = kep;
+                        if (activeKartya == 1) {                            
+                            document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
+                            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                         } else if (activeKartya == 2) {
-                            kep = './img/csacsi_harmas.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_harmas; 
+                            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 3) {
-                            kep = './img/maci_harmas.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = maci_harmas; 
+                            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 4) {
-                            kep = './img/tigris_harmas.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = tigris_harmas; 
+                            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 5) {
-                            kep = './img/oroszlan_harmas.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas; 
+                            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         }
                         document.getElementById('erdemjegy').innerHTML = 3;
                         szoveg = "Végeztél... ha gyakorolsz még, menni fog ez jobban is!";
                         beszolas();
                     } else if (arany >= 75 && arany <= 89.99) {
-                        if (activeKartya == 1) {
-                            kep = './img/nyuszi_negyes.webp';
-                            document.querySelector('.kep').src = kep;
+                        if (activeKartya == 1) {                            
+                            document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
+                            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                         } else if (activeKartya == 2) {
-                            kep = './img/csacsi_negyes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_negyes; 
+                            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 3) {
-                            kep = './img/maci_negyes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = maci_negyes; 
+                            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 4) {
-                            kep = './img/tigris_negyes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = tigris_negyes; 
+                            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 5) {
-                            kep = './img/oroszlan_negyes.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes; 
+                            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         }
                         document.getElementById('erdemjegy').innerHTML = 4;
                         szoveg = "A végére értél jó eredménnyel! Nagyon ügyes vagy!";
                         beszolas();
                     } else if (arany >= 90) {
-                        if (activeKartya == 1) {
-                            kep = './img/nyuszi_otos.webp';
-                            document.querySelector('.kep').src = kep;
+                        if (activeKartya == 1) {                            
+                            document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
+                            document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                         } else if (activeKartya == 2) {
-                            kep = './img/csacsi_otos.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_otos; 
+                            document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 3) {
-                            kep = './img/maci_otos.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = maci_otos; 
+                            document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 4) {
-                            kep = './img/tigris_otos.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = tigris_otos; 
+                            document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 5) {
-                            kep = './img/oroszlan_otos.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_otos; 
+                            document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         }
                         document.getElementById('erdemjegy').innerHTML = 5;
                         szoveg = "Gratulálok a jeles eredményedhez! Like!";
@@ -276,21 +279,21 @@ function betuBeolvasas () {
                     }  
                     
                     if (hiba == 0) {
-                        if (activeKartya == 1) {
-                            kep = './img/nyuszi_hiba_nelkul.webp';
-                            document.querySelector('.kep').src = kep;
+                        if (activeKartya == 1) {                            
+                            document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
+                            document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                         } else if (activeKartya == 2) {
-                            kep = './img/csacsi_hiba_nelkul.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul; 
+                            document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 3) {
-                            kep = './img/maci_hiba_nelkul.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul; 
+                            document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 4) {
-                            kep = './img/tigris_hiba_nelkul.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul; 
+                            document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         } else if (activeKartya == 5) {
-                            kep = './img/oroszlan_hiba_nelkul.webp';
-                            document.querySelector('.kep').src = kep;
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul; 
+                            document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
                         }
                         szoveg = "Ez hibátlan lett! Csak ámulok és bámulok!";
                         beszolas();                    
@@ -376,13 +379,14 @@ function idoSzamlalo() {
                 sec = szamlalo - ((szamlalo/60)*60);
             }      
             if (sec < 10 && min < 10) {
-                document.getElementById('tick').innerHTML = '0' + min + ':' + '0' + sec;
+                //document.getElementById('tick').innerHTML = '0' + min + ':' + '0' + sec;
+                document.getElementById('tick').innerHTML = `0${min}:0` + sec;
             }                 
             if (sec >= 10 && min < 10) {
-                document.getElementById('tick').innerHTML = '0' + min + ':' + sec;
+                document.getElementById('tick').innerHTML = `0${min}:` + sec;
             }
             if (sec < 10 && min >= 10) {
-                document.getElementById('tick').innerHTML = min + ':' + '0' + sec;
+                document.getElementById('tick').innerHTML = min + ':0' + sec;
             }
             if (sec >= 10 && min >= 10) {
                 document.getElementById('tick').innerHTML = min + ':' + sec;
@@ -436,7 +440,6 @@ function generalj(hossz) {
 var idoMegint = 0;
 function beszolas() {
     document.querySelector('.wrapper3').style.display = "grid";
-    document.querySelector('.karakterBelep').style.display = 'block'; //megjelenítem a karaktert     
     idoMegint = szamlalo; //megadom a számláló értékét egy mésik változónak
     clearInterval(ido); //megállítom az időt
     tovabbMegy = false; //nem engedek gépelni
@@ -445,8 +448,7 @@ function beszolas() {
 
     karakter = setTimeout(function() { //3mp múlva eltüntetem a karaktert...
         clearTimeout(karakter); //eltüntetem a karaktert...
-        document.querySelector('.wrapper3').style.display = "none";
-        document.querySelector('.karakterBelep').style.display = 'none'; //eltüntetem a karaktert...                
+        document.querySelector('.wrapper3').style.display = "none";             
         szamlalo = idoMegint; //visszaadom a számláló értékét a megállítás előttről
         idoSzamlalo(); //elindítom az időt
         if (szamlalo == 600 || begepeltSzoveg.length == fajlTartalom.length) { //ha lejárt a 10 perc, vagy végére értünk a szövegnek
@@ -465,862 +467,861 @@ function beszolashoz() {
     if (maradtBetu == 50 && arany >= 90){
         if (hiba == 0) {
             if (activeKartya == 1) {
-                kep = './img/nyuszi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
+                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Ilyen eredménnyel akkorát ugrasz, mint egy nyúl!";
             } else if (activeKartya == 2) {
-                kep = './img/csacsi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
+                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Ó-r-IÁÁÁÁÁÁ-s-i vagy! Így tovább!";
             } else if (activeKartya == 3) {
-                kep = './img/maci_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
+                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Figyelemreméltó a munkád! Hajrá!";
             } else if (activeKartya == 4) {
-                kep = './img/tigris_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
+                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Itt jön a tigris, nála erősebb nincs is!";
             } else if (activeKartya == 5) {
-                kep = './img/oroszlan_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
+                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Olyan király vagy, mint én!";
             }            
         } else {
+            szoveg = "Nagyon ügyes vagy, csak így tovább!";
             if (activeKartya == 1) {
-                kep = './img/nyuszi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
+                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
-                kep = './img/csacsi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
+                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
-                kep = './img/maci_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = maci_otos;
+                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
-                kep = './img/tigris_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = tigris_otos;
+                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
-                kep = './img/oroszlan_otos.webp';
-                document.querySelector('.kep').src = kep;
-            }
-            szoveg = "Nagyon ügyes vagy, csak így tovább!";                
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
+                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }            
         }            
         beszolas();           
     }
     if (maradtBetu == 100 && arany >= 90) {
         if (hiba == 0) {
-            if (activeKartya == 1) {
-                kep = './img/nyuszi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 2) {
-                kep = './img/csacsi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 3) {
-                kep = './img/maci_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 4) {
-                kep = './img/tigris_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 5) {
-                kep = './img/oroszlan_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            }
             szoveg = "Ezt már nevezem! Mindent bele!";
-        } else {
             if (activeKartya == 1) {
-                kep = './img/nyuszi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
+                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
-                kep = './img/csacsi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
+                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
-                kep = './img/maci_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
+                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
-                kep = './img/tigris_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
+                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
-                kep = './img/oroszlan_otos.webp';
-                document.querySelector('.kep').src = kep;
-            }
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
+                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }            
+        } else {
             szoveg = "Le a kalappal, csak így folytasd tovább!";
+            if (activeKartya == 1) {
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
+                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 2) {
+                document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
+                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 3) {
+                document.querySelector('.beszolasKep').innerHTML = maci_otos;
+                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 4) {
+                document.querySelector('.beszolasKep').innerHTML = tigris_otos;
+                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 5) {
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
+                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }            
         }                
         beszolas();                                        
     }
     if (maradtBetu == 150 && arany >= 90) {
         if (hiba == 0) {
-            if (activeKartya == 1) {
-                kep = './img/nyuszi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 2) {
-                kep = './img/csacsi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 3) {
-                kep = './img/maci_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 4) {
-                kep = './img/tigris_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 5) {
-                kep = './img/oroszlan_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            }
             szoveg = "Ha így folytatod, te leszel a győztes!";
-        } else {
             if (activeKartya == 1) {
-                kep = './img/nyuszi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
+                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
-                kep = './img/csacsi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
+                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
-                kep = './img/maci_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
+                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
-                kep = './img/tigris_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
+                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
-                kep = './img/oroszlan_otos.webp';
-                document.querySelector('.kep').src = kep;
-            }
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
+                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }            
+        } else {
             szoveg = "Nem semmi, amit a gombokkal művelsz!";
+            if (activeKartya == 1) {
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
+                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 2) {
+                document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
+                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 3) {
+                document.querySelector('.beszolasKep').innerHTML = maci_otos;
+                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 4) {
+                document.querySelector('.beszolasKep').innerHTML = tigris_otos;
+                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 5) {
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
+                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }            
         }              
         beszolas();            
     }
     if (maradtBetu == 200 && arany >= 90) {
         if (hiba == 0) {
-            if (activeKartya == 1) {
-                kep = './img/nyuszi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 2) {
-                kep = './img/csacsi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 3) {
-                kep = './img/maci_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 4) {
-                kep = './img/tigris_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 5) {
-                kep = './img/oroszlan_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            }
             szoveg = "Nem tudsz hibázni! Így tovább!";
-        } else {
             if (activeKartya == 1) {
-                kep = './img/nyuszi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
+                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
-                kep = './img/csacsi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
+                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
-                kep = './img/maci_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
+                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
-                kep = './img/tigris_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
+                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
-                kep = './img/oroszlan_otos.webp';
-                document.querySelector('.kep').src = kep;
-            }
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
+                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }            
+        } else {
             szoveg = "Úgy látom valaki már megállíthatatlan!";
+            if (activeKartya == 1) {
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
+                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 2) {
+                document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
+                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 3) {
+                document.querySelector('.beszolasKep').innerHTML = maci_otos;
+                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 4) {
+                document.querySelector('.beszolasKep').innerHTML = tigris_otos;
+                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 5) {
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
+                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }            
         }
         beszolas();
     }
     if (maradtBetu == 250 && arany >= 90) {
         if (hiba == 0) {
-            if (activeKartya == 1) {
-                kep = './img/nyuszi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 2) {
-                kep = './img/csacsi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 3) {
-                kep = './img/maci_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 4) {
-                kep = './img/tigris_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 5) {
-                kep = './img/oroszlan_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            }
             szoveg = "Hohó... komolyan kell venni Téged!";
-        } else {
             if (activeKartya == 1) {
-                kep = './img/nyuszi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
+                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
-                kep = './img/csacsi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
+                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
-                kep = './img/maci_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
+                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
-                kep = './img/tigris_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
+                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
-                kep = './img/oroszlan_otos.webp';
-                document.querySelector('.kep').src = kep;
-            }
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
+                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }            
+        } else {
             szoveg = "Felülmúlhatatlan az ügyességed! Hajrá!";
+            if (activeKartya == 1) {
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
+                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 2) {
+                document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
+                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 3) {
+                document.querySelector('.beszolasKep').innerHTML = maci_otos;
+                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 4) {
+                document.querySelector('.beszolasKep').innerHTML = tigris_otos;
+                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 5) {
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
+                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }            
         }
         beszolas();
     }
     if (maradtBetu == 300 && arany >= 90) {
         if (hiba == 0) {
-            if (activeKartya == 1) {
-                kep = './img/nyuszi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 2) {
-                kep = './img/csacsi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 3) {
-                kep = './img/maci_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 4) {
-                kep = './img/tigris_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 5) {
-                kep = './img/oroszlan_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
-            }
             szoveg = "Nem jutok szóhoz... nagyon megy ez!";
-        } else {
             if (activeKartya == 1) {
-                kep = './img/nyuszi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
+                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
-                kep = './img/csacsi_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
+                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
-                kep = './img/maci_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
+                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
-                kep = './img/tigris_otos.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
+                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
-                kep = './img/oroszlan_otos.webp';
-                document.querySelector('.kep').src = kep;
-            }
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
+                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }            
+        } else {
             szoveg = "Most kezdenek csak irigyelni mások!";
+            if (activeKartya == 1) {
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
+                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 2) {
+                document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
+                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 3) {
+                document.querySelector('.beszolasKep').innerHTML = maci_otos;
+                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 4) {
+                document.querySelector('.beszolasKep').innerHTML = tigris_otos;
+                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 5) {
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
+                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }           
         }
         beszolas();
     }
     if (maradtBetu == 350 && arany >= 90) {
         if (hiba == 0) {
+            szoveg = "A gombok nagyon szeretnek Téged!";
             if (activeKartya == 1) {
-                kep = './img/nyuszi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
+                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
-                kep = './img/csacsi_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
+                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
-                kep = './img/maci_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
+                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
-                kep = './img/tigris_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
+                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
-                kep = './img/oroszlan_hiba_nelkul.webp';
-                document.querySelector('.kep').src = kep;
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
+                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Ha így haladsz, letolsz a trónomról!";
-            } else {
-                szoveg = "A gombok nagyon szeretnek Téged!";
-            }            
+            }                     
         } else {
-            if (activeKartya == 1) {
-                kep = './img/nyuszi_otos.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 2) {
-                kep = './img/csacsi_otos.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 3) {
-                kep = './img/maci_otos.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 4) {
-                kep = './img/tigris_otos.webp';
-                document.querySelector('.kep').src = kep;
-            } else if (activeKartya == 5) {
-                kep = './img/oroszlan_otos.webp';
-                document.querySelector('.kep').src = kep;
-            }
             szoveg = "Te biztos dobogós leszel! Befutó vagy!";
+            if (activeKartya == 1) {
+                document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
+                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 2) {
+                document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
+                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 3) {
+                document.querySelector('.beszolasKep').innerHTML = maci_otos;
+                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 4) {
+                document.querySelector('.beszolasKep').innerHTML = tigris_otos;
+                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            } else if (activeKartya == 5) {
+                document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
+                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            }            
         }
         beszolas();
     }
 
     // 4-es
     if (maradtBetu == 50 && (arany < 90 && arany >= 75)) {
+        szoveg = "Gyerünk! Majdnem megvan a jeles!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
+            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             szoveg = "Ne szaladj így elõre! Lassabban, pontosabban!";
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
+            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             szoveg = "Olyan kis csacsi vagy, figyelj oda jobban!";
         } else if (activeKartya == 3) {
-            kep = './img/maci_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_negyes;
+            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             szoveg = "Olyan szorgos vagy, mint a méhecske!";
         } else if (activeKartya == 4) {
-            kep = './img/tigris_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
+            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_negyes.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Gyerünk! Majdnem megvan a jeles!";          
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
+            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }       
         beszolas();
     }
     if (maradtBetu == 100 && (arany < 90 && arany >= 75)) {
+        szoveg = "Csak egy kicsi kell még hozzá! Hajrá!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
+            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
+            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_negyes;
+            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
+            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_negyes.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Csak egy kicsi kell még hozzá! Hajrá!";            
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
+            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
     if (maradtBetu == 150 && (arany < 90 && arany >= 75)) {
+        szoveg = "Húzz bele az ötösért! Klikk-klikk-klikk...";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
+            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
+            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_negyes;
+            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
+            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_negyes.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Húzz bele az ötösért! Klikk-klikk-klikk...";            
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
+            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
     if (maradtBetu == 200 && (arany < 90 && arany >= 75)) {
+        szoveg = "Koncentrálj, van még esély! Képes vagy rá!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
+            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
+            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_negyes;
+            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
+            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
+            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Koncentrálj, van még esély! Képes vagy rá!";            
         beszolas();
     }
     if (maradtBetu == 250 && (arany < 90 && arany >= 75)) {
+        szoveg = "Már nem kellene sok, de így is jó vagy!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
+            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
+            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_negyes;
+            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
+            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
+            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Már nem kellene sok, de így is jó vagy!";            
         beszolas();
     }
     if (maradtBetu == 300 && (arany < 90 && arany >= 75)) {
+        szoveg = "Meglesz már a négyes, alább ne add!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
+            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
+            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_negyes;
+            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
+            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
+            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Meglesz már a négyes, alább ne add!";            
         beszolas();
     }
     if (maradtBetu == 350 && (arany < 90 && arany >= 75)) {
+        szoveg = "Jó jegy az a négyes, a második legjobb!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
+            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
+            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_negyes;
+            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
+            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_negyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
+            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Jó jegy az a négyes, a második legjobb!";            
         beszolas();
     }
 
     // 3-as
     if (maradtBetu == 50 && (arany < 75 && arany >= 55)) {
+        szoveg = "Nem rossz egy közepestől! Menne jobban?";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
+            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
+            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_harmas;
+            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
+            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
+            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Nem rossz egy közepestől! Menne jobban?";            
         beszolas();
     }
     if (maradtBetu == 100 && (arany < 75 && arany >= 55)) {
+        szoveg = "Stabilan tartod a hármast! Biztos a kedvenc számod.";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
+            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
+            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
             szoveg = "Egyre fentebb lépsz a szamárlétrán!";
         } else if (activeKartya == 3) {
-            kep = './img/maci_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_harmas;
+            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
             szoveg = "Bocs, hogy beleszólok... de ezt Te jobban is tudod!"
         } else if (activeKartya == 4) {
-            kep = './img/tigris_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
+            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             szoveg = "Grrrr...Figyelj oda jobban!";
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_harmas.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Stabilan tartod a hármast! Biztos a kedvenc számod.";                            
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
+            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
     if (maradtBetu == 150 && (arany < 75 && arany >= 55)) {
+        szoveg = "Egy jó gomb, egy rossz gomb. Arany középút!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
+            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
+            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 3) {
-            kep = './img/maci_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_harmas;
+            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             szoveg = "Még én is ügyesebben ütném le a billentyűket a nagy mancsommal!";
         } else if (activeKartya == 4) {
-            kep = './img/tigris_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
+            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_harmas.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Egy jó gomb, egy rossz gomb. Arany középút!";        
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
+            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
     if (maradtBetu == 200 && (arany < 75 && arany >= 55)) {
+        szoveg = "A középmezőnyt erősíted!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
+            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
+            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_harmas;
+            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
+            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
+            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "A középmezőnyt erősíted!";            
         beszolas();
     }
     if (maradtBetu == 250 && (arany < 75 && arany >= 55)) {
+        szoveg = "Egy, meg egy, meg egy egyenlő három!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
+            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
+            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_harmas;
+            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
+            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
+            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Egy, meg egy, meg egy egyenlő három!";            
         beszolas();
     }
     if (maradtBetu == 300 && (arany < 75 && arany >= 55)) {
+        szoveg = "Nem javulsz, szerintem maradsz közepes!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
+            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
+            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_harmas;
+            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
+            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
+            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Nem javulsz, szerintem maradsz közepes!";            
         beszolas();
     }
     if (maradtBetu == 350 && (arany < 75 && arany >= 55)) {
+        szoveg = "Biztos, hogy dobogós hely nem lesz a tiéd!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
+            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
+            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_harmas;
+            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
+            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_harmas.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
+            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Biztos, hogy dobogós hely nem lesz a tiéd!";            
         beszolas();
     }
     
     //2-es
     if (maradtBetu == 50 && (arany < 55 && arany >= 30)) {
+        szoveg = "Hát, ez éppen elégséges eddig!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
+            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
+            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_kettes;
+            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
+            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
+            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Hát, ez éppen elégséges eddig!";            
         beszolas();
     }
     if (maradtBetu == 100 && (arany < 55 && arany >= 30)) {
+        szoveg = "Mi történik? Nem vagyok én ehhez hozzászokva...";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
+            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
+            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_kettes;
+            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
+            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
+            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Mi történik? Nem vagyok én ehhez hozzászokva...";            
         beszolas();
     }
     if (maradtBetu == 150 && (arany < 55 && arany >= 30)) {
-        if (activeKartya == 1) {
-            kep = './img/nyuszi_kettes.webp';
-            document.querySelector('.kep').src = kep;
-        } else if (activeKartya == 2) {
-            kep = './img/csacsi_kettes.webp';
-            document.querySelector('.kep').src = kep;
-        } else if (activeKartya == 3) {
-            kep = './img/maci_kettes.webp';
-            document.querySelector('.kep').src = kep;
-        } else if (activeKartya == 4) {
-            kep = './img/tigris_kettes.webp';
-            document.querySelector('.kep').src = kep;
-        } else if (activeKartya == 5) {
-            kep = './img/oroszlan_kettes.webp';
-            document.querySelector('.kep').src = kep;
-        }
         szoveg = "Egyujjas kesztyű van rajtad, vagy mi?";
+        if (activeKartya == 1) {
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
+            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
+        } else if (activeKartya == 2) {
+            document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
+            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
+        } else if (activeKartya == 3) {
+            document.querySelector('.beszolasKep').innerHTML = maci_kettes;
+            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
+        } else if (activeKartya == 4) {
+            document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
+            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        } else if (activeKartya == 5) {
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
+            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }
         beszolas();
     }
     if (maradtBetu == 200 && (arany < 55 && arany >= 30)) {
+        szoveg = "Most próbáld meg az ujjaiddal nyomogatni a gombokat...";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
+            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
+            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_kettes;
+            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
+            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
+            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Most próbáld meg az ujjaiddal nyomogatni a gombokat...";            
         beszolas();
     }
     if (maradtBetu == 250 && (arany < 55 && arany >= 30)) {
+        szoveg = "Szerintem neked összenőttek az ujjaid!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
+            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
+            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_kettes;
+            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
+            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
+            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Szerintem neked összenőttek az ujjaid!";            
         beszolas();
     }
     if (maradtBetu == 300 && (arany < 55 && arany >= 30)) {
+        szoveg = "Hahó! Te direkt ütsz mellé a gomboknak?";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
+            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
+            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_kettes;
+            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
+            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
+            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
-        szoveg = "Hahó! Te direkt ütsz mellé a gomboknak?";            
         beszolas();
     }
     if (maradtBetu == 350 && (arany < 55 && arany >= 30)) {
+        szoveg = "Ebből bukta lesz, ha így folytatod... de nem diós-mákos!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
+            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
+            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_kettes;
+            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_kettes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
+            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_kettes.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Ebből bukta lesz, ha így folytatod... de nem diós-mákos!";            
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
+            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
 
     //1-es
     if (maradtBetu == 50 && arany < 30) {
+        szoveg = "Ez most micsoda? Nem gombmelléűtő verseny ez!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
+            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
+            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_egyes;
+            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
+            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_egyes.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Ez most micsoda? Nem gombmelléűtő verseny ez!";            
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
+            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
     if (maradtBetu == 100 && arany < 30) {
+        szoveg = "Látom, a piros szín a kedvenced...";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
+            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
+            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_egyes;
+            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
+            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_egyes.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Látom, a piros szín a kedvenced...";            
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
+            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
     if (maradtBetu == 150 && arany < 30) {
-        if (activeKartya == 1) {
-            kep = './img/nyuszi_egyes.webp';
-            document.querySelector('.kep').src = kep;
-        } else if (activeKartya == 2) {
-            kep = './img/csacsi_egyes.webp';
-            document.querySelector('.kep').src = kep;
-        } else if (activeKartya == 3) {
-            kep = './img/maci_egyes.webp';
-            document.querySelector('.kep').src = kep;
-        } else if (activeKartya == 4) {
-            kep = './img/tigris_egyes.webp';
-            document.querySelector('.kep').src = kep;
-        } else if (activeKartya == 5) {
-            kep = './img/oroszlan_egyes.webp';
-            document.querySelector('.kep').src = kep;
-        }
         szoveg = "Lehet, hogy meg kellene vizsgáltatnod a szemed!";
+        if (activeKartya == 1) {
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
+            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
+        } else if (activeKartya == 2) {
+            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
+            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
+        } else if (activeKartya == 3) {
+            document.querySelector('.beszolasKep').innerHTML = maci_egyes;
+            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
+        } else if (activeKartya == 4) {
+            document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
+            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        } else if (activeKartya == 5) {
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
+            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
     if (maradtBetu == 200 && arany < 30) {
+        szoveg = "Azt hiszed ökölvívó órán vagy? Ujjaidat használd!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
+            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
+            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_egyes;
+            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
+            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_egyes.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Azt hiszed ökölvívó órán vagy? Ujjaidat használd!";            
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
+            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
     if (maradtBetu == 250 && arany < 30) {
+        szoveg = "Téosz mosmicsinálol? Nem érteni mágyár?";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
+            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
+            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_egyes;
+            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
+            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_egyes.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Téosz mosmicsinálol? Nem érteni mágyár?";            
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
+            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
     if (maradtBetu == 300 && arany < 30) {
+        szoveg = "Ááá... ezt nem hiszem el! Végem van!";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
+            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
+            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_egyes;
+            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
+            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_egyes.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Ááá... ezt nem hiszem el! Végem van!";            
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
+            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
     if (maradtBetu == 350 && arany < 30) {
+        szoveg = "Kinyírtál teljesen! ?!#/&<%$@";
         if (activeKartya == 1) {
-            kep = './img/nyuszi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
+            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
-            kep = './img/csacsi_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
+            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
-            kep = './img/maci_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = maci_egyes;
+            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
-            kep = './img/tigris_egyes.webp';
-            document.querySelector('.kep').src = kep;
+            document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
+            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            kep = './img/oroszlan_egyes.webp';
-            document.querySelector('.kep').src = kep;
-        }
-        szoveg = "Kinyírtál teljesen! ?!#/&<%$@";            
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
+            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+        }        
         beszolas();
     }
 }
