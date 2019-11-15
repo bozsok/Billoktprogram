@@ -179,19 +179,15 @@ function betuBeolvasas () {
                     if (arany <= 29.99) {
                         if (activeKartya == 1) {                            
                             document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes; //megjelenítem a karaktert 
-                            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; //megjelenő SVG finomítása
+                            //document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; //megjelenő SVG finomítása
                         } else if (activeKartya == 2) {
-                            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes; 
-                            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
                         } else if (activeKartya == 3) {
-                            document.querySelector('.beszolasKep').innerHTML = maci_egyes; 
-                            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = maci_egyes;
                         } else if (activeKartya == 4) {
-                            document.querySelector('.beszolasKep').innerHTML = tigris_egyes; 
-                            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
                         } else if (activeKartya == 5) {
-                            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes; 
-                            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
                         }
                         document.getElementById('erdemjegy').innerHTML = 1;
                         szoveg = "Jááj! Mökfoksz bukni! Mára vége vann!";
@@ -199,19 +195,14 @@ function betuBeolvasas () {
                     } else if (arany >= 30 && arany <= 54.99) {
                         if (activeKartya == 1) {                            
                             document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
-                            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                         } else if (activeKartya == 2) {
-                            document.querySelector('.beszolasKep').innerHTML = csacsi_kettes; 
-                            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
                         } else if (activeKartya == 3) {
-                            document.querySelector('.beszolasKep').innerHTML = maci_kettes; 
-                            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = maci_kettes;
                         } else if (activeKartya == 4) {
-                            document.querySelector('.beszolasKep').innerHTML = tigris_kettes; 
-                            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
                         } else if (activeKartya == 5) {
-                            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes; 
-                            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
                         }
                         document.getElementById('erdemjegy').innerHTML = 2;
                         szoveg = "Vigyázzá, mer ha így haladol, mökbukol! Végezté márra!";
@@ -219,19 +210,14 @@ function betuBeolvasas () {
                     } else if (arany >= 55 && arany <= 74.99) {
                         if (activeKartya == 1) {                            
                             document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
-                            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                         } else if (activeKartya == 2) {
-                            document.querySelector('.beszolasKep').innerHTML = csacsi_harmas; 
-                            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
                         } else if (activeKartya == 3) {
-                            document.querySelector('.beszolasKep').innerHTML = maci_harmas; 
-                            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = maci_harmas;
                         } else if (activeKartya == 4) {
-                            document.querySelector('.beszolasKep').innerHTML = tigris_harmas; 
-                            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
                         } else if (activeKartya == 5) {
-                            document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas; 
-                            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
                         }
                         document.getElementById('erdemjegy').innerHTML = 3;
                         szoveg = "Végeztél... ha gyakorolsz még, menni fog ez jobban is!";
@@ -239,19 +225,14 @@ function betuBeolvasas () {
                     } else if (arany >= 75 && arany <= 89.99) {
                         if (activeKartya == 1) {                            
                             document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
-                            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                         } else if (activeKartya == 2) {
-                            document.querySelector('.beszolasKep').innerHTML = csacsi_negyes; 
-                            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
                         } else if (activeKartya == 3) {
-                            document.querySelector('.beszolasKep').innerHTML = maci_negyes; 
-                            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = maci_negyes;
                         } else if (activeKartya == 4) {
-                            document.querySelector('.beszolasKep').innerHTML = tigris_negyes; 
-                            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
                         } else if (activeKartya == 5) {
-                            document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes; 
-                            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
                         }
                         document.getElementById('erdemjegy').innerHTML = 4;
                         szoveg = "A végére értél jó eredménnyel! Nagyon ügyes vagy!";
@@ -259,19 +240,14 @@ function betuBeolvasas () {
                     } else if (arany >= 90) {
                         if (activeKartya == 1) {                            
                             document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
-                            document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                         } else if (activeKartya == 2) {
-                            document.querySelector('.beszolasKep').innerHTML = csacsi_otos; 
-                            document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
                         } else if (activeKartya == 3) {
-                            document.querySelector('.beszolasKep').innerHTML = maci_otos; 
-                            document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = maci_otos;
                         } else if (activeKartya == 4) {
-                            document.querySelector('.beszolasKep').innerHTML = tigris_otos; 
-                            document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = tigris_otos;
                         } else if (activeKartya == 5) {
-                            document.querySelector('.beszolasKep').innerHTML = oroszlan_otos; 
-                            document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
                         }
                         document.getElementById('erdemjegy').innerHTML = 5;
                         szoveg = "Gratulálok a jeles eredményedhez! Like!";
@@ -281,19 +257,14 @@ function betuBeolvasas () {
                     if (hiba == 0) {
                         if (activeKartya == 1) {                            
                             document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
-                            document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                         } else if (activeKartya == 2) {
-                            document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul; 
-                            document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
                         } else if (activeKartya == 3) {
-                            document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul; 
-                            document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
                         } else if (activeKartya == 4) {
-                            document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul; 
-                            document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
                         } else if (activeKartya == 5) {
-                            document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul; 
-                            document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
+                            document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
                         }
                         szoveg = "Ez hibátlan lett! Csak ámulok és bámulok!";
                         beszolas();                    
@@ -468,42 +439,32 @@ function beszolashoz() {
         if (hiba == 0) {
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
-                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Ilyen eredménnyel akkorát ugrasz, mint egy nyúl!";
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
-                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Ó-r-IÁÁÁÁÁÁ-s-i vagy! Így tovább!";
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
-                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Figyelemreméltó a munkád! Hajrá!";
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
-                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Itt jön a tigris, nála erősebb nincs is!";
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
-                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Olyan király vagy, mint én!";
             }            
         } else {
             szoveg = "Nagyon ügyes vagy, csak így tovább!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
-                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
-                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_otos;
-                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_otos;
-                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
-                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }            
         }            
         beszolas();           
@@ -513,37 +474,27 @@ function beszolashoz() {
             szoveg = "Ezt már nevezem! Mindent bele!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
-                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
-                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
-                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
-                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
-                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }            
         } else {
             szoveg = "Le a kalappal, csak így folytasd tovább!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
-                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
-                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_otos;
-                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_otos;
-                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
-                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }            
         }                
         beszolas();                                        
@@ -553,37 +504,27 @@ function beszolashoz() {
             szoveg = "Ha így folytatod, te leszel a győztes!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
-                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
-                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
-                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
-                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
-                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }            
         } else {
             szoveg = "Nem semmi, amit a gombokkal művelsz!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
-                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
-                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_otos;
-                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_otos;
-                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
-                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }            
         }              
         beszolas();            
@@ -593,37 +534,27 @@ function beszolashoz() {
             szoveg = "Nem tudsz hibázni! Így tovább!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
-                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
-                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
-                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
-                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
-                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }            
         } else {
             szoveg = "Úgy látom valaki már megállíthatatlan!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
-                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
-                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_otos;
-                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_otos;
-                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
-                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }            
         }
         beszolas();
@@ -633,37 +564,27 @@ function beszolashoz() {
             szoveg = "Hohó... komolyan kell venni Téged!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
-                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
-                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
-                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
-                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
-                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }            
         } else {
             szoveg = "Felülmúlhatatlan az ügyességed! Hajrá!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
-                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
-                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_otos;
-                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_otos;
-                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
-                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }            
         }
         beszolas();
@@ -673,37 +594,27 @@ function beszolashoz() {
             szoveg = "Nem jutok szóhoz... nagyon megy ez!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
-                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
-                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
-                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
-                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
-                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }            
         } else {
             szoveg = "Most kezdenek csak irigyelni mások!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
-                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
-                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_otos;
-                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_otos;
-                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
-                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }           
         }
         beszolas();
@@ -713,38 +624,28 @@ function beszolashoz() {
             szoveg = "A gombok nagyon szeretnek Téged!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
-                document.querySelector('#nyuszi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_hiba_nelkul;
-                document.querySelector('#csacsi_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
-                document.querySelector('#maci_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
-                document.querySelector('#tigris_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_hiba_nelkul;
-                document.querySelector('#oroszlan_hiba_nelkul').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
                 szoveg = "Ha így haladsz, letolsz a trónomról!";
             }                     
         } else {
             szoveg = "Te biztos dobogós leszel! Befutó vagy!";
             if (activeKartya == 1) {
                 document.querySelector('.beszolasKep').innerHTML = nyuszi_otos;
-                document.querySelector('#nyuszi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 2) {
                 document.querySelector('.beszolasKep').innerHTML = csacsi_otos;
-                document.querySelector('#csacsi_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_otos;
-                document.querySelector('#maci_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_otos;
-                document.querySelector('#tigris_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             } else if (activeKartya == 5) {
                 document.querySelector('.beszolasKep').innerHTML = oroszlan_otos;
-                document.querySelector('#oroszlan_otos').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             }            
         }
         beszolas();
@@ -755,22 +656,17 @@ function beszolashoz() {
         szoveg = "Gyerünk! Majdnem megvan a jeles!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
-            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             szoveg = "Ne szaladj így elõre! Lassabban, pontosabban!";
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
-            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             szoveg = "Olyan kis csacsi vagy, figyelj oda jobban!";
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_negyes;
-            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             szoveg = "Olyan szorgos vagy, mint a méhecske!";
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
-            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
-            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }       
         beszolas();
     }
@@ -778,19 +674,14 @@ function beszolashoz() {
         szoveg = "Csak egy kicsi kell még hozzá! Hajrá!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
-            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
-            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_negyes;
-            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
-            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
-            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }        
         beszolas();
     }
@@ -798,19 +689,14 @@ function beszolashoz() {
         szoveg = "Húzz bele az ötösért! Klikk-klikk-klikk...";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
-            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
-            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_negyes;
-            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
-            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
-            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }        
         beszolas();
     }
@@ -818,19 +704,14 @@ function beszolashoz() {
         szoveg = "Koncentrálj, van még esély! Képes vagy rá!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
-            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
-            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_negyes;
-            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
-            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
-            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -838,19 +719,14 @@ function beszolashoz() {
         szoveg = "Már nem kellene sok, de így is jó vagy!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
-            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
-            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_negyes;
-            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
-            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
-            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -858,19 +734,14 @@ function beszolashoz() {
         szoveg = "Meglesz már a négyes, alább ne add!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
-            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
-            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_negyes;
-            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
-            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
-            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -878,19 +749,14 @@ function beszolashoz() {
         szoveg = "Jó jegy az a négyes, a második legjobb!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_negyes;
-            document.querySelector('#nyuszi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_negyes;
-            document.querySelector('#csacsi_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_negyes;
-            document.querySelector('#maci_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_negyes;
-            document.querySelector('#tigris_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_negyes;
-            document.querySelector('#oroszlan_negyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -900,19 +766,14 @@ function beszolashoz() {
         szoveg = "Nem rossz egy közepestől! Menne jobban?";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
-            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
-            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_harmas;
-            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
-            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
-            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -920,22 +781,17 @@ function beszolashoz() {
         szoveg = "Stabilan tartod a hármast! Biztos a kedvenc számod.";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
-            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
-            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
             szoveg = "Egyre fentebb lépsz a szamárlétrán!";
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_harmas;
-            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
             szoveg = "Bocs, hogy beleszólok... de ezt Te jobban is tudod!"
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
-            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             szoveg = "Grrrr...Figyelj oda jobban!";
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
-            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }        
         beszolas();
     }
@@ -943,20 +799,15 @@ function beszolashoz() {
         szoveg = "Egy jó gomb, egy rossz gomb. Arany középút!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
-            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;'; 
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
-            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_harmas;
-            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
             szoveg = "Még én is ügyesebben ütném le a billentyűket a nagy mancsommal!";
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
-            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
-            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }        
         beszolas();
     }
@@ -964,19 +815,14 @@ function beszolashoz() {
         szoveg = "A középmezőnyt erősíted!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
-            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
-            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_harmas;
-            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
-            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
-            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -984,19 +830,14 @@ function beszolashoz() {
         szoveg = "Egy, meg egy, meg egy egyenlő három!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
-            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
-            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_harmas;
-            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
-            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
-            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -1004,19 +845,14 @@ function beszolashoz() {
         szoveg = "Nem javulsz, szerintem maradsz közepes!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
-            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
-            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_harmas;
-            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
-            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
-            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -1024,19 +860,14 @@ function beszolashoz() {
         szoveg = "Biztos, hogy dobogós hely nem lesz a tiéd!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_harmas;
-            document.querySelector('#nyuszi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
-            document.querySelector('#csacsi_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_harmas;
-            document.querySelector('#maci_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
-            document.querySelector('#tigris_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_harmas;
-            document.querySelector('#oroszlan_harmas').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -1046,19 +877,14 @@ function beszolashoz() {
         szoveg = "Hát, ez éppen elégséges eddig!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
-            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
-            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_kettes;
-            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
-            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
-            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -1066,19 +892,14 @@ function beszolashoz() {
         szoveg = "Mi történik? Nem vagyok én ehhez hozzászokva...";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
-            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
-            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_kettes;
-            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
-            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
-            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -1086,19 +907,14 @@ function beszolashoz() {
         szoveg = "Egyujjas kesztyű van rajtad, vagy mi?";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
-            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
-            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_kettes;
-            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
-            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
-            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -1106,19 +922,14 @@ function beszolashoz() {
         szoveg = "Most próbáld meg az ujjaiddal nyomogatni a gombokat...";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
-            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
-            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_kettes;
-            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
-            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
-            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -1126,19 +937,14 @@ function beszolashoz() {
         szoveg = "Szerintem neked összenőttek az ujjaid!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
-            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
-            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_kettes;
-            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
-            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
-            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -1146,19 +952,14 @@ function beszolashoz() {
         szoveg = "Hahó! Te direkt ütsz mellé a gomboknak?";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
-            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
-            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_kettes;
-            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
-            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
-            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }
         beszolas();
     }
@@ -1166,19 +967,14 @@ function beszolashoz() {
         szoveg = "Ebből bukta lesz, ha így folytatod... de nem diós-mákos!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_kettes;
-            document.querySelector('#nyuszi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_kettes;
-            document.querySelector('#csacsi_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_kettes;
-            document.querySelector('#maci_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_kettes;
-            document.querySelector('#tigris_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
-            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;
-            document.querySelector('#oroszlan_kettes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_kettes;            
         }        
         beszolas();
     }
@@ -1187,40 +983,30 @@ function beszolashoz() {
     if (maradtBetu == 50 && arany < 30) {
         szoveg = "Ez most micsoda? Nem gombmelléűtő verseny ez!";
         if (activeKartya == 1) {
-            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
-            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;            
         } else if (activeKartya == 2) {
-            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
-            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
+            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;            
         } else if (activeKartya == 3) {
-            document.querySelector('.beszolasKep').innerHTML = maci_egyes;
-            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
+            document.querySelector('.beszolasKep').innerHTML = maci_egyes;            
         } else if (activeKartya == 4) {
-            document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
-            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            document.querySelector('.beszolasKep').innerHTML = tigris_egyes;            
         } else if (activeKartya == 5) {
-            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
-            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
+            document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;            
         }        
         beszolas();
     }
     if (maradtBetu == 100 && arany < 30) {
         szoveg = "Látom, a piros szín a kedvenced...";
         if (activeKartya == 1) {
-            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
-            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
+            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;            
         } else if (activeKartya == 2) {
-            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
-            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
+            document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_egyes;
-            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
-            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
-            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }        
         beszolas();
     }
@@ -1228,19 +1014,14 @@ function beszolashoz() {
         szoveg = "Lehet, hogy meg kellene vizsgáltatnod a szemed!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
-            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
-            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_egyes;
-            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
-            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
-            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }        
         beszolas();
     }
@@ -1248,19 +1029,14 @@ function beszolashoz() {
         szoveg = "Azt hiszed ökölvívó órán vagy? Ujjaidat használd!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
-            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
-            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_egyes;
-            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
-            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
-            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }        
         beszolas();
     }
@@ -1268,19 +1044,14 @@ function beszolashoz() {
         szoveg = "Téosz mosmicsinálol? Nem érteni mágyár?";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
-            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
-            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_egyes;
-            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
-            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
-            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }        
         beszolas();
     }
@@ -1288,19 +1059,14 @@ function beszolashoz() {
         szoveg = "Ááá... ezt nem hiszem el! Végem van!";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
-            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
-            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_egyes;
-            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
-            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
-            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }        
         beszolas();
     }
@@ -1308,19 +1074,14 @@ function beszolashoz() {
         szoveg = "Kinyírtál teljesen! ?!#/&<%$@";
         if (activeKartya == 1) {
             document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
-            document.querySelector('#nyuszi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 2) {
             document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
-            document.querySelector('#csacsi_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_egyes;
-            document.querySelector('#maci_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';            
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_egyes;
-            document.querySelector('#tigris_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         } else if (activeKartya == 5) {
             document.querySelector('.beszolasKep').innerHTML = oroszlan_egyes;
-            document.querySelector('#oroszlan_egyes').style.cssText = 'width: auto; height: 600px; align-self: flex-end;';
         }        
         beszolas();
     }
