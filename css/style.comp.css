@@ -329,14 +329,16 @@ body {
   grid-column: 2/3;
   position: relative; }
 
-.karakterBelep {
-  z-index: 1;
-  display: none; }
+.beszolasKep {
+  width: 600px;
+  height: 700px;
+  display: flex;
+  justify-content: flex-start; }
 
 .beszolas {
   position: absolute;
-  top: 10rem;
-  left: 14.5rem;
+  top: 13rem;
+  left: 10rem;
   z-index: 2;
   font-size: 3.5rem;
   font-weight: bold;
