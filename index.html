@@ -2,142 +2,203 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Billentyűzetgyakorló program</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/style.css">        
-        <link rel="shortcut icon" type="image/png" href="favicon/favicon-32x32.png">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&amp;subset=latin-ext" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap&subset=latin-ext" rel="stylesheet">        
-        <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Billentyűzetgyakorló program</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&amp;subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
 
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/favicon/site.webmanifest">
-        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-        
-        <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <section class="wrapper1">
-            <div class="fooldal">
-                <div class="fooldal__cim">
-                    Billentyűzetgyakorló <span>program</span>
-                </div>
-                <div class="fooldal__valaszto">
-                    <div class="fooldal__container">
-                        <div class="fooldal__valaszto-cim">
-                            Válassz egyet az alábbi szintek közül:
-                        </div>
-                        
-                        <div class="section__kartya">
-                            <div class="kartya" id="kartya_01">
-                                <div class="kartya__kep">
-                                    <div class="kartya__kep-nyuszi">
-                                        <div class="nyuszi_kep"></div>
-                                        <div class="felirat">Kezdő 1</div> 
-                                    </div>                                  
-                                </div>                             
-                            </div>
-                            <div class="kartya" id="kartya_02">
-                                <div class="kartya__kep">
-                                    <div class="kartya__kep-csacsi">
-                                        <div class="csacsi_kep"></div>
-                                        <div class="felirat">Kezdő 2</div> 
-                                    </div>                                  
-                                </div>                             
-                            </div>
-                            <div class="kartya" id="kartya_03">
-                                <div class="kartya__kep">
-                                    <div class="kartya__kep-maci">
-                                        <div class="maci_kep"></div>
-                                        <div class="felirat">Haladó 1</div> 
-                                    </div>                                  
-                                </div>                             
-                            </div>
-                            <div class="kartya" id="kartya_04">
-                                <div class="kartya__kep">
-                                    <div class="kartya__kep-tigris">
-                                        <div class="tigris_kep"></div>
-                                        <div class="felirat">Haladó 2</div> 
-                                    </div>                                  
-                                </div>                             
-                            </div>
-                            <div class="kartya" id="kartya_05">
-                                <div class="kartya__kep">
-                                    <div class="kartya__kep-oroszlan">
-                                        <div class="oroszlan_kep"></div>
-                                        <div class="felirat">Profi 1</div> 
-                                    </div>                                  
-                                </div>                             
-                            </div>                            
-                        </div>
-                    </div>                                        
-                </div>                
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <section class="wrapper1">
+      <div class="fooldal">
+        <div class="fooldal__cim">
+          Billentyűzetgyakorló <span>program</span>
+        </div>
+        <div class="fooldal__valaszto">
+          <div class="fooldal__container">
+            <div class="fooldal__valaszto-cim">
+              Válassz egyet az alábbi szintek közül:
             </div>
-        </section>
-        
-        <section class="wrapper2">
-            <div class="feladatoldal">
-                <div class="feladatoldal__navigacio">
-                    <div class="feladatoldal__navigacio-nyil">
-                        <ion-icon size="large" name="arrow-round-back"></ion-icon>
-                    </div>                    
-                </div>
 
-                <div class="feladatoldal__kezeles">
-                    <div class="feladatoldal__kezeles-kartya"> 
-                        <div class="kartya__test">
-                            <div class="kartya__test-kep"></div>
-                            <div class="kartya__test-gomb">
-                                <ion-icon class="play" id="start-tick" size="large" name="play"></ion-icon>
-                                <ion-icon class="pause" id="stop-tick" size="large" name="pause"></ion-icon>
-                            </div>                            
-                        </div>
-                    </div>                    
-                    <div class="feladatoldal__kezeles-informaciok">
-                        <div class="info"><p>Eltelt idő: </p><p class="ertek" id="tick">00:00</p></div>
-                        <div class="info"><p>Billentyűszám: </p><p class="ertek" id="billentyuk">0/0</p></div>
-                        <div class="info"><p>Hibák száma: </p><p class="ertek" id="hiba">0</p></div>
-                        <div class="info"><p>Százalékos ért.: </p><p class="ertek" id="arany">0%</p></div>
-                        <div class="info"><p>Érdemjegy: </p><p class="ertek" id="erdemjegy"></p></div>
-                    </div>
+            <div class="section__kartya">
+              <div class="kartya" id="kartya_01">
+                <div class="kartya__kep">
+                  <div class="kartya__kep-nyuszi">
+                    <div class="nyuszi_kep"></div>
+                    <div class="felirat">Kezdő 1</div>
+                  </div>
                 </div>
-
-                <div class="feladatoldal__feldolgozas">
-                    <div class="feladatoldal__feldolgozas-kiiratas">
-                        <div class="kiir" id="kiir"></div>
-                        <div class="betu" id=betu></div> 
-                    </div>
-                    <div class="feladatoldal__feldolgozas-bevitel"> 
-                        <div class="begepel" id="begepel"></div> 
-                    </div>
-                    <p ></p>
-                </div>                
+              </div>
+              <div class="kartya" id="kartya_02">
+                <div class="kartya__kep">
+                  <div class="kartya__kep-csacsi">
+                    <div class="csacsi_kep"></div>
+                    <div class="felirat">Kezdő 2</div>
+                  </div>
+                </div>
+              </div>
+              <div class="kartya" id="kartya_03">
+                <div class="kartya__kep">
+                  <div class="kartya__kep-maci">
+                    <div class="maci_kep"></div>
+                    <div class="felirat">Haladó 1</div>
+                  </div>
+                </div>
+              </div>
+              <div class="kartya" id="kartya_04">
+                <div class="kartya__kep">
+                  <div class="kartya__kep-tigris">
+                    <div class="tigris_kep"></div>
+                    <div class="felirat">Haladó 2</div>
+                  </div>
+                </div>
+              </div>
+              <div class="kartya" id="kartya_05">
+                <div class="kartya__kep">
+                  <div class="kartya__kep-oroszlan">
+                    <div class="oroszlan_kep"></div>
+                    <div class="felirat">Profi 1</div>
+                  </div>
+                </div>
+              </div>
             </div>
-                      
-        </section>
-        <section class="wrapper3">
-            <div class="hatterKarakter">
-                <div class="beszolasKep"></div>
-                <p class="beszolas" id="beszolas"></p>
-            </div> 
-        </section>        
-        
-        <script src="js/allatok.js"></script>
-        <script src="js/js.js"></script>        
+          </div>
+        </div>
+      </div>
+    </section>
 
-    </body>
-</html> 
+    <section class="wrapper2">
+      <div class="feladatoldal">
+        <div class="feladatoldal__navigacio">
+          <div class="feladatoldal__navigacio-nyil">
+            <ion-icon size="large" name="arrow-round-back"></ion-icon>
+          </div>
+        </div>
+
+        <div class="feladatoldal__kezeles">
+          <div class="feladatoldal__kezeles-kartya">
+            <div class="kartya__test">
+              <div class="kartya__test-kep"></div>
+              <div class="kartya__test-gomb">
+                <ion-icon
+                  class="play"
+                  id="start-tick"
+                  size="large"
+                  name="play"
+                ></ion-icon>
+                <ion-icon
+                  class="pause"
+                  id="stop-tick"
+                  size="large"
+                  name="pause"
+                ></ion-icon>
+              </div>
+            </div>
+          </div>
+          <div class="feladatoldal__kezeles-informaciok">
+            <div class="info">
+              <p>Eltelt idő:</p>
+              <p class="ertek" id="tick">00:00</p>
+            </div>
+            <div class="info">
+              <p>Billentyűszám:</p>
+              <p class="ertek" id="billentyuk">0/0</p>
+            </div>
+            <div class="info">
+              <p>Hibák száma:</p>
+              <p class="ertek" id="hiba">0</p>
+            </div>
+            <div class="info">
+              <p>Százalékos ért.:</p>
+              <p class="ertek" id="arany">0%</p>
+            </div>
+            <div class="info">
+              <p>Érdemjegy:</p>
+              <p class="ertek" id="erdemjegy"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feladatoldal__feldolgozas">
+          <div class="feladatoldal__feldolgozas-kiiratas">
+            <div class="kiir" id="kiir"></div>
+            <div class="betu" id="betu"></div>
+          </div>
+          <div class="feladatoldal__feldolgozas-bevitel">
+            <div class="begepel" id="begepel"></div>
+          </div>
+          <p></p>
+        </div>
+      </div>
+    </section>
+    <section class="wrapper3">
+      <div class="hatterKarakter">
+        <div class="beszolasKep"></div>
+        <p class="beszolas" id="beszolas"></p>
+      </div>
+    </section>
+
+    <script src="js/allatok.js"></script>
+    <script src="js/js.js"></script>
+  </body>
+</html>
