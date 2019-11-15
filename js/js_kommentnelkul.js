@@ -444,7 +444,7 @@ function beszolashoz() {
                 szoveg = "Ó-r-IÁÁÁÁÁÁ-s-i vagy! Így tovább!";
             } else if (activeKartya == 3) {
                 document.querySelector('.beszolasKep').innerHTML = maci_hiba_nelkul;
-                szoveg = "Figyelemreméltó a munkád! Hajrá!";
+                szoveg = "Rákaptál, mint maci a lépesmézre!";
             } else if (activeKartya == 4) {
                 document.querySelector('.beszolasKep').innerHTML = tigris_hiba_nelkul;
                 szoveg = "Itt jön a tigris, nála erősebb nincs is!";
