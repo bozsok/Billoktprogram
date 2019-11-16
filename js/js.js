@@ -363,7 +363,20 @@ function idoSzamlalo() {
             }
 
             if (szamlalo == 300) {
-                szoveg = "Figyelj, mert most vagyunk az időnk felénél!"; //...kiírassam ezt a szöveget                
+                szoveg = "Figyelj, mert most vagyunk az időnk felénél!"; //...kiírassam ezt a szöveget
+                //Ha nem indítjuk el a billentyűleütéssel a programot, akkor is ki kell rajzolnia egy állatot!
+                if (activeKartya == 1) {
+                    document.querySelector('.beszolasKep').innerHTML = nyuszi_alap;
+                } else if (activeKartya == 2) {
+                    document.querySelector('.beszolasKep').innerHTML = csacsi_alap;
+                } else if (activeKartya == 3) {
+                    document.querySelector('.beszolasKep').innerHTML = maci_alap;
+                } else if (activeKartya == 4) {
+                    document.querySelector('.beszolasKep').innerHTML = tigris_alap;
+                } else if (activeKartya == 5) {
+                    document.querySelector('.beszolasKep').innerHTML = oroszlan_alap;
+                }
+
                 beszolas(); //...ezzel a függvénnyel
             }
 
