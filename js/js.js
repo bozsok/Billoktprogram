@@ -9,6 +9,21 @@ tovabbMegy = true;
 //Eltüntetjük a Pause gombot
 document.querySelector('.pause').style.display = 'none';
 document.querySelector('.wrapper2').classList.add('eltuntet');
+document.querySelector('.help').classList.add('eltuntet');
+
+//információra kattintás
+document.querySelector('.signs').addEventListener('click', function () {
+    document.querySelector('.help').style.cssText = 'display: flex; transform: translateX(0)';
+    document.querySelector('.fooldal__kezdolap').style.cssText = 'display: none; transform: translateX(-120rem)';
+});
+
+//információ-visszanyilra kattintunk
+document.querySelector('.help__navigacio-nyil').addEventListener('click', function () {
+    document.querySelector('.help').style.cssText = 'display: none; transform: translateX(120rem)';
+    document.querySelector('.fooldal__kezdolap').style.cssText = 'display: block; transform: translateX(0)';
+});
+
+
 
 //Kártyakattintás műveletei
 function kartyaKattintas() {
