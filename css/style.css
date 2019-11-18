@@ -64,21 +64,13 @@ body {
     transition: 0.3s;
     color: #edcebe; }
     .help__nyil-jobb:hover {
-      transform: scale(1.4); }
+      fill: #bc4915; }
   .help__szoveg {
     padding: 3rem 7rem 3rem 3rem;
     font-size: 2rem;
     text-align: justify; }
     .help__szoveg span {
       font-weight: 700; }
-  .help__navigacio-nyil {
-    display: inline-block;
-    margin: 3rem 2rem 0 0;
-    color: #edcebe;
-    cursor: pointer;
-    transition: 0.3s; }
-    .help__navigacio-nyil:hover {
-      transform: scale(1.4); }
 
 .fooldal {
   position: relative;
@@ -121,7 +113,7 @@ body {
   transition: 0.3s;
   cursor: pointer; }
   .signs:hover {
-    transform: scale(1.4); }
+    color: #bc4915; }
 
 .section__kartya {
   display: flex; }
@@ -197,14 +189,13 @@ body {
   .feladatoldal__navigacio-nyil {
     position: absolute;
     display: inline-block;
-    margin: 3.5rem 0 0 2rem;
+    margin: 2rem 0 0 2rem;
     color: #edcebe;
     font-size: 3.5rem;
     cursor: pointer;
     transition: 0.3s; }
     .feladatoldal__navigacio-nyil:hover {
-      transform: scale(1.4);
-      cursor: pointer; }
+      color: #bc4915; }
   .feladatoldal__kezeles {
     width: 33%;
     height: 100%;
