@@ -1,29 +1,27 @@
 ﻿var activeKartya, tomb, tovabbMegy, szamlalo, fajlTartalom, billentyuk, erdemjegy, ido, sec, min, karakter, szoveg, kep;
+var ertek = 0;
 var i = 0;
 var hiba = 0;
 var begepeltSzoveg = [];
 var kiirtSzoveg = [];
 var arany = 0;
-
+document.querySelector('.fooldal').scrollIntoView();
 tovabbMegy = true;
-
 document.querySelector('.pause').style.display = 'none';
-document.querySelector('.wrapper2').classList.add('eltuntet');
-
-
 function kartyaKattintas() {
-    document.querySelector('.wrapper1').classList.remove('megjelenitGrid');
-    document.querySelector('.wrapper1').classList.add('eltuntet');
-    document.querySelector('.wrapper2').classList.remove('eltuntet');
-    document.querySelector('.wrapper2').classList.add('megjelenitGrid');
+    if (ertek == 0) {
+        document.querySelector('.fooldal').style.transform = "translateX(-120rem)";
+        document.querySelector('.feladatoldal').style.transform = "translateX(-120rem)";
+        ertek = 120;
+    } else {
+        console.log('középső bal bibi van');
+    }
     document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.remove('alap');
 }
-
-
 document.getElementById('kartya_01').addEventListener('click', function () {
     activeKartya = 1;
-    document.querySelector('.kartya__test-kep').innerHTML = nyuszi;
-    document.querySelector('.kartya__test-kep').style.backgroundColor = '#dfecf1';
+    document.querySelector('.kartya__test-kep').innerHTML = nyuszi; 
+    document.querySelector('.kartya__test-kep').style.backgroundColor = '#dfecf1'; 
     kartyaKattintas();
     fajlBeolvasas();
 });
@@ -45,7 +43,7 @@ document.getElementById('kartya_04').addEventListener('click', function () {
     activeKartya = 4;
     document.querySelector('.kartya__test-kep').innerHTML = tigris;
     document.querySelector('.kartya__test-kep').style.backgroundColor = '#fbefe1';
-    document.querySelector('.kartya__test-kep #tigris').style.cssText = 'width: 120%; margin-left: -3rem;';
+    document.querySelector('.kartya__test-kep #tigris').style.cssText = 'width: 120%; margin-left: -3rem;'; 
     kartyaKattintas();
     fajlBeolvasas();
 });
@@ -57,26 +55,36 @@ document.getElementById('kartya_05').addEventListener('click', function () {
     kartyaKattintas();
     fajlBeolvasas();
 });
-
-
 document.querySelector('.feladatoldal__navigacio-nyil').addEventListener('click', function () {
-    document.querySelector('.wrapper1').classList.remove('eltuntet');
-    document.querySelector('.wrapper1').classList.add('megjelenitGrid');
-    document.querySelector('.wrapper2').classList.remove('megjelenitGrid');
-    document.querySelector('.wrapper2').classList.add('eltuntet');
+    if (ertek == 120) {
+        document.querySelector('.fooldal').style.transform = "translateX(0)";
+        document.querySelector('.feladatoldal').style.transform = "translateX(0)";
+        ertek = 0;
+    }
     document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.remove('szint_' + activeKartya);
     document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.add('alap');
-
     tisztit();
 });
-
-
+document.querySelector('.signs').addEventListener('click', function () {
+    if (ertek == 0) {
+        document.querySelector('.fooldal').style.transform = "translateX(120rem)";
+        document.querySelector('.help').style.transform = "translateX(120rem)";
+        ertek = 120;
+    } else {
+        console.log('középső bal bibi van');
+    }
+});
+document.querySelector('.help__nyil-jobb').addEventListener('click', function () {
+    if (ertek == 120) {
+        document.querySelector('.fooldal').style.transform = "translateX(0)";
+        document.querySelector('.help').style.transform = "translateX(0)";
+        ertek = 0;
+    }
+});
 document.querySelector('.play').addEventListener('click', play);
 document.querySelector('.play').addEventListener('click', idoSzamlalo);
 document.querySelector('.pause').addEventListener('click', pause);
 document.querySelector('.pause').addEventListener('click', idoMegallito);
-
-
 function play() {
     document.querySelector('.feladatoldal__navigacio-nyil').classList.remove('aktiv');
     document.querySelector('.feladatoldal__navigacio-nyil').classList.add('inaktiv');
@@ -88,7 +96,6 @@ function play() {
     tovabbMegy = true;
     betuBeolvasas();
 }
-
 function pause() {
     document.querySelector('.feladatoldal__navigacio-nyil').classList.remove('inaktiv');
     document.querySelector('.feladatoldal__navigacio-nyil').classList.add('aktiv');
@@ -96,11 +103,9 @@ function pause() {
     document.querySelector('.play').style.display = 'block';
     document.querySelector(".kartya__test").classList.remove('arnyek');
     document.querySelector('.betu').classList.remove("betu_jon");
-    i = 0;
-    tovabbMegy = false;
+    i = 0; 
+    tovabbMegy = false; 
 }
-
-
 function fajlBeolvasas() {
     var szint_0 = './txt/alap.txt';
     var szint_1 = './txt/kezdo_1.txt';
@@ -108,18 +113,14 @@ function fajlBeolvasas() {
     var szint_3 = './txt/halado_1.txt';
     var szint_4 = './txt/halado_2.txt';
     var szint_5 = './txt/profi_1.txt';
-
-
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("kiir").innerHTML = this.responseText;
-            fajlTartalom = this.responseText;
-
-            document.getElementById('billentyuk').innerHTML = `0/${fajlTartalom.length}`;
+            document.getElementById("kiir").innerHTML = this.responseText; 
+            fajlTartalom = this.responseText; 
+            document.getElementById('billentyuk').innerHTML = `0/${fajlTartalom.length}`; 
         }
     };
-
     if (activeKartya == 1) {
         xhttp.open("GET", szint_1, true);
     } else if (activeKartya == 2) {
@@ -132,53 +133,38 @@ function fajlBeolvasas() {
         xhttp.open("GET", szint_5, true);
     } else xhttp.open("GET", szint_0, true);
     xhttp.send();
-
     document.querySelector('.kiir').style.color = 'grey';
-
 }
-
-
 function betuBeolvasas() {
     document.getElementById('kiir').innerHTML = fajlTartalom;
-
-    document.getElementById('billentyuk').innerHTML = `0/${fajlTartalom.length}`;
-
+    document.getElementById('billentyuk').innerHTML = `0/${fajlTartalom.length}`; 
     document.getElementById('betu').innerHTML = fajlTartalom[i];
-
-
     document.onkeypress = function (esemeny) {
         if (tovabbMegy) {
             let Unicode;
             let betu;
-            if (typeof event !== 'undefined') {
-                Unicode = esemeny.charCode || esemeny.keyCode;
-                betu = String.fromCharCode(Unicode);
-
+            if (typeof event !== 'undefined') { 
+                Unicode = esemeny.charCode || esemeny.keyCode; 
+                betu = String.fromCharCode(Unicode); 
                 if (betu) {
-                    kiirtSzoveg.push(fajlTartalom[i]);
+                    kiirtSzoveg.push(fajlTartalom[i]); 
                     begepeltSzoveg.push(betu);
                 }
-
                 if (betu !== fajlTartalom[i]) {
-                    hiba++;
-
-                    kiirtSzoveg[i] = `<span style = 'color:red'>${kiirtSzoveg[i]}</span>`;
+                    hiba++; 
+                    kiirtSzoveg[i] = `<span style = 'color:red'>${kiirtSzoveg[i]}</span>`; 
                     begepeltSzoveg[i] = `<span style = 'color:red'>${begepeltSzoveg[i]}</span>`;
                 }
-                document.querySelector('.kiir').innerHTML = kiirtSzoveg.join('');
+                document.querySelector('.kiir').innerHTML = kiirtSzoveg.join(''); 
                 document.querySelector('.begepel').innerHTML = begepeltSzoveg.join('');
-
-
                 if (begepeltSzoveg.length == fajlTartalom.length) {
-
                     document.getElementById('billentyuk').innerHTML = (maradtBetu + 1) + '/' + fajlTartalom.length;
-                    document.getElementById('hiba').innerHTML = hiba;
-                    arany = ((((maradtBetu + 1) - hiba) / (maradtBetu + 1)) * 100).toFixed(2);
-                    document.getElementById('arany').innerHTML = arany + '%';
-
+                    document.getElementById('hiba').innerHTML = hiba; 
+                    arany = ((((maradtBetu + 1) - hiba) / (maradtBetu + 1)) * 100).toFixed(2); 
+                    document.getElementById('arany').innerHTML = arany + '%'; 
                     if (arany <= 29.99) {
                         if (activeKartya == 1) {
-                            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes;
+                            document.querySelector('.beszolasKep').innerHTML = nyuszi_egyes; 
                         } else if (activeKartya == 2) {
                             document.querySelector('.beszolasKep').innerHTML = csacsi_egyes;
                         } else if (activeKartya == 3) {
@@ -252,7 +238,6 @@ function betuBeolvasas() {
                         szoveg = "Gratulálok a jeles eredményedhez! Like!";
                         beszolas();
                     }
-
                     if (hiba == 0) {
                         if (activeKartya == 1) {
                             document.querySelector('.beszolasKep').innerHTML = nyuszi_hiba_nelkul;
@@ -268,25 +253,18 @@ function betuBeolvasas() {
                         szoveg = "Ez hibátlan lett! Csak ámulok és bámulok!";
                         beszolas();
                     }
-
-                    tovabbMegy = false;
-                    idoMegallito();
+                    tovabbMegy = false; 
+                    idoMegallito(); 
                 }
-
                 else {
-
                     i++;
-
                     document.getElementById('betu').innerHTML = fajlTartalom[i];
-
                     maradtBetu = i;
                     billentyuk = maradtBetu + '/' + fajlTartalom.length;
                     document.getElementById('billentyuk').innerHTML = billentyuk;
-                    document.getElementById('hiba').innerHTML = hiba;
-
-                    arany = (((maradtBetu - hiba) / maradtBetu) * 100).toFixed(2);
-                    document.getElementById('arany').innerHTML = arany + '%';
-
+                    document.getElementById('hiba').innerHTML = hiba; 
+                    arany = (((maradtBetu - hiba) / maradtBetu) * 100).toFixed(2); 
+                    document.getElementById('arany').innerHTML = arany + '%'; 
                     if (arany <= 29.99) {
                         document.getElementById('erdemjegy').innerHTML = 1;
                     } else if (arany >= 30 && arany <= 54.99) {
@@ -296,22 +274,16 @@ function betuBeolvasas() {
                     } else if (arany >= 75 && arany <= 89.99) {
                         document.getElementById('erdemjegy').innerHTML = 4;
                     } else if (arany >= 90) document.getElementById('erdemjegy').innerHTML = 5;
-
                     beszolashoz();
                 }
             }
         }
-
-
         else if (esemeny) {
             betu = esemeny.which;
-
         }
-        return false;
+        return false; 
     };
 }
-
-
 function tisztit() {
     document.getElementById('kiir').innerHTML = "";
     document.getElementById('begepel').innerHTML = "";
@@ -328,14 +300,10 @@ function tisztit() {
     sec = 0;
     min = 0;
 }
-
-
 szamlalo = 0;
 sec = 0;
 min = 0;
-
 function idoSzamlalo() {
-
     ido = setInterval(function () {
         if (szamlalo <= 600) {
             szamlalo++;
@@ -349,7 +317,6 @@ function idoSzamlalo() {
                 sec = szamlalo - ((szamlalo / 60) * 60);
             }
             if (sec < 10 && min < 10) {
-
                 document.getElementById('tick').innerHTML = `0${min}:0` + sec;
             }
             if (sec >= 10 && min < 10) {
@@ -361,37 +328,42 @@ function idoSzamlalo() {
             if (sec >= 10 && min >= 10) {
                 document.getElementById('tick').innerHTML = min + ':' + sec;
             }
-
             if (szamlalo == 300) {
-                szoveg = "Figyelj, mert most vagyunk az időnk felénél!";
-                beszolas();
-            }
-
-            if (szamlalo == 540) {
+                szoveg = "Figyelj, mert most vagyunk az időnk felénél!"; 
                 if (activeKartya == 1) {
-                    document.querySelector('.beszolas').style.fontSize = "3.3rem";
-                    szoveg = "Figyi, húzzuk fel a nyúlcipőt, mert mindjárt lejár az idő...";
+                    document.querySelector('.beszolasKep').innerHTML = nyuszi_alap;
+                } else if (activeKartya == 2) {
+                    document.querySelector('.beszolasKep').innerHTML = csacsi_alap;
+                } else if (activeKartya == 3) {
+                    document.querySelector('.beszolasKep').innerHTML = maci_alap;
+                } else if (activeKartya == 4) {
+                    document.querySelector('.beszolasKep').innerHTML = tigris_alap;
+                } else if (activeKartya == 5) {
+                    document.querySelector('.beszolasKep').innerHTML = oroszlan_alap;
+                }
+                beszolas(); 
+            }
+            if (szamlalo == 540) { 
+                if (activeKartya == 1) {
+                    document.querySelector('.beszolas').style.fontSize = "3.3rem"; 
+                    szoveg = "Figyi, húzzuk fel a nyúlcipőt, mert mindjárt lejár az idő..."; 
                 } else {
                     szoveg = "Már csak egy perc van hátra... mindjárt vége!";
                 }
-                beszolas();
+                beszolas(); 
             } else {
-                document.querySelector('.beszolas').style.fontSize = "3.5rem";
+                document.querySelector('.beszolas').style.fontSize = "3.5rem"; 
             }
         }
-
         if (szamlalo >= 600) {
-            clearInterval(ido);
-            tovabbMegy = false;
+            clearInterval(ido); 
+            tovabbMegy = false; 
         }
     }, 1000);
 };
-
 function idoMegallito() {
     clearInterval(ido);
 };
-
-
 function generalj(hossz) {
     var eredmeny = '';
     var kisbetuk = 'aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz';
@@ -404,36 +376,30 @@ function generalj(hossz) {
     }
     return eredmeny;
 }
-
-
-
 var idoMegint = 0;
 function beszolas() {
-    document.querySelector('.wrapper3').style.display = "grid";
-    idoMegint = szamlalo;
-    clearInterval(ido);
-    tovabbMegy = false;
+    document.querySelector('.container_hatterKarakter').style.cssText = "display: grid; z-index: 2";
+    idoMegint = szamlalo; 
+    clearInterval(ido); 
+    tovabbMegy = false; 
     document.getElementById('beszolas').innerHTML = szoveg;
-    document.querySelector('.hatterKarakter').style.cssText = "display: block; opacity: 1; z-index: 3";
-
-    karakter = setTimeout(function () {
-        clearTimeout(karakter);
-        document.querySelector('.wrapper3').style.display = "none";
-        szamlalo = idoMegint;
-        idoSzamlalo();
-        if (szamlalo == 600 || begepeltSzoveg.length == fajlTartalom.length) {
-            tovabbMegy = false;
-            idoMegallito();
-        } else {
-            tovabbMegy = true;
+    document.querySelector('.hatterKarakter').style.cssText = "display: block; opacity: 1; z-index: 2"; 
+    karakter = setTimeout(function () { 
+        clearTimeout(karakter); 
+        document.querySelector('.container_hatterKarakter').style.cssText = "display: none; z-index: 0";
+        szamlalo = idoMegint; 
+        idoSzamlalo(); 
+        if (szamlalo == 600 || begepeltSzoveg.length == fajlTartalom.length) { 
+            tovabbMegy = false; 
+            idoMegallito(); 
+        } else { 
+            tovabbMegy = true; 
         }
         document.getElementById('beszolas').innerHTML = "";
-        document.querySelector('.hatterKarakter').style.cssText = "display: none; opacity: 0; z-index: 0";
+        document.querySelector('.hatterKarakter').style.cssText = "display: none; opacity: 0; z-index: 0"; 
     }, 3000);
 }
-
 function beszolashoz() {
-
     if (maradtBetu == 50 && arany >= 90) {
         if (hiba == 0) {
             if (activeKartya == 1) {
@@ -649,8 +615,6 @@ function beszolashoz() {
         }
         beszolas();
     }
-
-
     if (maradtBetu == 50 && (arany < 90 && arany >= 75)) {
         szoveg = "Gyerünk! Majdnem megvan a jeles!";
         if (activeKartya == 1) {
@@ -759,8 +723,6 @@ function beszolashoz() {
         }
         beszolas();
     }
-
-
     if (maradtBetu == 50 && (arany < 75 && arany >= 55)) {
         szoveg = "Nem rossz egy közepestől! Menne jobban?";
         if (activeKartya == 1) {
@@ -802,7 +764,7 @@ function beszolashoz() {
             document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_harmas;
-            szoveg = "Még én is ügyesebben ütném le a billentyűket a nagy mancsommal!";
+            szoveg = "Ennél még én is jobb vagyok a nagy mancsommal!";
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
         } else if (activeKartya == 5) {
@@ -870,8 +832,6 @@ function beszolashoz() {
         }
         beszolas();
     }
-
-
     if (maradtBetu == 50 && (arany < 55 && arany >= 30)) {
         szoveg = "Hát, ez éppen elégséges eddig!";
         if (activeKartya == 1) {
@@ -977,8 +937,6 @@ function beszolashoz() {
         }
         beszolas();
     }
-
-
     if (maradtBetu == 50 && arany < 30) {
         szoveg = "Ez most micsoda? Nem gombmelléűtő verseny ez!";
         if (activeKartya == 1) {

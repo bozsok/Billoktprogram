@@ -15,8 +15,8 @@ document.querySelector('.pause').style.display = 'none';
 //Kártyakattintás műveletei - eltoljuk az oldalt, hogy megjelenhessen a másik
 function kartyaKattintas() {
     if (ertek == 0) {
-        document.querySelector('.fooldal').style.transform = "translateX(120rem)";
-        document.querySelector('.feladatoldal').style.transform = "translateX(120rem)";
+        document.querySelector('.fooldal').style.transform = "translateX(-120rem)";
+        document.querySelector('.feladatoldal').style.transform = "translateX(-120rem)";
         ertek = 120;
     } else {
         console.log('középső bal bibi van');
@@ -79,15 +79,15 @@ document.querySelector('.feladatoldal__navigacio-nyil').addEventListener('click'
 //információra kattintunk
 document.querySelector('.signs').addEventListener('click', function () {
     if (ertek == 0) {
-        document.querySelector('.fooldal').style.transform = "translateX(-120rem)";
-        document.querySelector('.help').style.transform = "translateX(-120rem)";
+        document.querySelector('.fooldal').style.transform = "translateX(120rem)";
+        document.querySelector('.help').style.transform = "translateX(120rem)";
         ertek = 120;
     } else {
         console.log('középső bal bibi van');
     }
 });
 //információs oldalon lévő visszanyílra kattintunk
-document.querySelector('.help__navigacio-nyil').addEventListener('click', function () {
+document.querySelector('.help__nyil-jobb').addEventListener('click', function () {
     if (ertek == 120) {
         document.querySelector('.fooldal').style.transform = "translateX(0)";
         document.querySelector('.help').style.transform = "translateX(0)";
@@ -386,7 +386,7 @@ function idoSzamlalo() {
                 document.getElementById('tick').innerHTML = min + ':' + sec;
             }
 
-            if (szamlalo == 3) {
+            if (szamlalo == 300) {
                 szoveg = "Figyelj, mert most vagyunk az időnk felénél!"; //...kiírassam ezt a szöveget                
                 //Ha nem indítjuk el a billentyűleütéssel a programot, akkor is ki kell rajzolnia egy állatot!
                 if (activeKartya == 1) {
