@@ -69,155 +69,155 @@
       </p>
     <![endif]-->
 
-    <section class="wrapper1">
-      <div class="fooldal">
-
-        <div class="help" id="help">
-          <div class="help__szoveg">
-              
-              <p class="help__cim">    BILLENTYŰZETGYAKORLÓ <span>PROGRAM</span></p>
-              <p>A program a billentyűzet gombjainak megismerését szolgálja, segíti a betűk, számok, jelek helyének megtalálását a billentyűzeten.<br>A kezdőképen 5 kártya látható, amely 5 szintet jelent. A szintek külön-külön 400 karakter leütéséből állnak, kivéve a Profi 1 szintet. Az első szint a Kezdő 1, ahol csak kisbetűk leütése jelenti a kihívást. A Kezdő 2 szinten már ehhez jönnek a nagybetűk, a Haladó 1 szinten az előzőeket a számok is kiegészítik. A Haladó 2 szint az egyik legnehezebb, kis- és nagybetűk, számok mellett jeleket is vár a program. A Profi 1 esetén már teljes mondatokat írunk betűnként.<br>A nekünk megfelelő szintet kattintással kezdjük!<br><br>A következő képernyőn előzetesen belepillanthatunk a leütésre váró 400 karakterbe, amely a játék indítását követően az első gomb megnyomásakor eltűnik. A játékot a Play gomb megnyomásával kezdhetjük. Az óra elkezd számolni, a befejezéshez 10 perc áll rendelkezésünkre. A program figyelmeztet, ha az időnk fele letelik, illetve az utolsó perc kezdetekor is. A játékot végleg a Pause gommbal állítjuk meg, ekkor válik lehetővé, hogy visszalépjünk a kezdőoldalra.<br>A program kijelzi a leütott gombokat, a hibák számát és ebből százalékosan értékel. Felül jelennek meg a kért, alul az általunk begépelt karakterek. Ha ezek nem egyeznek, tehát hibázunk, akkor a program azt pirossal jelzi.<br><br>Az eredményességünkről a választott szintnek megfelelő állat is folyamatosan tájékoztat minket egy-egy megjegyzéssel.
-              </p>
+    <section class="container">
+      <div class="wrapper">
+        <!-- bal -->
+        <div class="feladatoldal">
+            <div class="feladatoldal__navigacio">
+              <div class="feladatoldal__navigacio-nyil">
+                <ion-icon size="large" name="arrow-round-back"></ion-icon>
+              </div>
+            </div>
+    
+            <div class="feladatoldal__kezeles">
+              <div class="feladatoldal__kezeles-kartya">
+                <div class="kartya__test">
+                  <div class="kartya__test-kep"></div>
+                  <div class="kartya__test-gomb">
+                    <ion-icon
+                      class="play"
+                      id="start-tick"
+                      size="large"
+                      name="play"
+                    ></ion-icon>
+                    <ion-icon
+                      class="pause"
+                      id="stop-tick"
+                      size="large"
+                      name="pause"
+                    ></ion-icon>
+                  </div>
+                </div>
+              </div>
+              <div class="feladatoldal__kezeles-informaciok">
+                <div class="info">
+                  <p>Eltelt idő:</p>
+                  <p class="ertek" id="tick">00:00</p>
+                </div>
+                <div class="info">
+                  <p>Billentyű:</p>
+                  <p class="ertek" id="billentyuk">0/0</p>
+                </div>
+                <div class="info">
+                  <p>Hibák:</p>
+                  <p class="ertek" id="hiba">0</p>
+                </div>
+                <div class="info">
+                  <p>Értékelés:</p>
+                  <p class="ertek" id="arany">0%</p>
+                </div>
+                <div class="info">
+                  <p>Érdemjegy:</p>
+                  <p class="ertek" id="erdemjegy"></p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="feladatoldal__feldolgozas">
+              <div class="feladatoldal__feldolgozas-kiiratas">
+                <div class="kiir" id="kiir"></div>
+                <div class="betu" id="betu"></div>
+              </div>
+              <div class="feladatoldal__feldolgozas-bevitel">
+                <div class="begepel" id="begepel"></div>
+              </div>
+              <p></p>
+            </div>
           </div>
+
+          <!-- középső -->
+          <div class="fooldal">
+              <div class="fooldal__kezdolap">
+                <div class="fooldal__cim">
+                  Billentyűzetgyakorló <span>program</span>
+                </div>
+      
+                <div class="signs">
+                  <ion-icon size="large" name="information-circle"></ion-icon>
+                </div>
+      
+                <div class="fooldal__container">        
+                  <div class="fooldal__valaszto-cim">
+                      Válassz egyet az alábbi szintek közül:
+                  </div>         
           
-          <div class="help__navigacio">
+                  <div class="section__kartya">
+                    <div class="kartya" id="kartya_01">
+                      <div class="kartya__kep">
+                        <div class="kartya__kep-nyuszi">
+                          <div class="nyuszi_kep"></div>
+                          <div class="felirat">Kezdő 1</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="kartya" id="kartya_02">
+                      <div class="kartya__kep">
+                        <div class="kartya__kep-csacsi">
+                          <div class="csacsi_kep"></div>
+                          <div class="felirat">Kezdő 2</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="kartya" id="kartya_03">
+                      <div class="kartya__kep">
+                        <div class="kartya__kep-maci">
+                          <div class="maci_kep"></div>
+                          <div class="felirat">Haladó 1</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="kartya" id="kartya_04">
+                      <div class="kartya__kep">
+                        <div class="kartya__kep-tigris">
+                          <div class="tigris_kep"></div>
+                          <div class="felirat">Haladó 2</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="kartya" id="kartya_05">
+                      <div class="kartya__kep">
+                        <div class="kartya__kep-oroszlan">
+                          <div class="oroszlan_kep"></div>
+                          <div class="felirat">Profi</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>       
+            </div>
+
+        <!-- jobb -->
+        <div class="help" id="help">
+            <div class="help__szoveg">                
+                <p class="help__cim">    BILLENTYŰZETGYAKORLÓ <span>PROGRAM</span></p>
+                <p>A program a billentyűzet gombjainak megismerését szolgálja, segíti a betűk, számok, jelek helyének megtalálását a billentyűzeten.<br>A kezdőképen öt kártya látható, amely öt szintet jelent. A szintek külön-külön 400 karakter leütéséből állnak, kivéve a Profi szintet. Az első szint a <i>Kezdő 1</i>, ahol csak kisbetűk leütése jelenti a kihívást. A <i>Kezdő 2</i> szinten már ehhez jönnek a nagybetűk, a <i>Haladó 1</i> szinten az előzőeket a számok is kiegészítik. A <i>Haladó 2</i> szint az egyik legnehezebb, kis- és nagybetűk, számok mellett jeleket is vár a program. A <i>Profi</i> esetén már teljes mondatokat írunk betűnként.<br><br>A megfelelő szintet a kártyára való kattintással kezdjük!<br><br>A következő képernyőn előzetesen belepillanthatunk a leütésre váró 400 karakterbe, amely a játék indítását követően az első gomb megnyomásakor eltűnik. A játékot a Play gomb megnyomásával kezdhetjük. Az óra elkezd számolni, a befejezéshez 10 perc áll rendelkezésünkre. A program figyelmeztet, ha az időnk fele letelik, illetve az utolsó perc kezdetekor is. A játékot végleg a Pause gommbal állítjuk meg, ekkor válik lehetővé, hogy visszalépjünk a kezdőoldalra.<br>A program kijelzi a leütott gombokat, a hibák számát és ebből százalékosan értékel. Felül jelennek meg a kért, alul az általunk begépelt karakterek. Ha ezek nem egyeznek, tehát hibázunk, akkor a program azt pirossal jelzi.<br><br>Az eredményességünkről a választott szintnek megfelelő állat is folyamatosan tájékoztat minket egy-egy megjegyzéssel, miközben az idő megáll.<br><br>Jó szórakozást!
+                </p>
+            </div>            
+            <div class="help__navigacio">
               <div class="help__navigacio-nyil">
                 <ion-icon size="large" name="arrow-round-forward"></ion-icon>
               </div>
             </div>  
-        </div>
-
-        <div class="fooldal__kezdolap">
-          <div class="fooldal__cim">
-            Billentyűzetgyakorló <span>program</span>
-          </div>
-
-          <div class="signs">
-            <ion-icon size="large" name="information-circle"></ion-icon>
-          </div>
-
-          <div class="fooldal__container">        
-            <div class="fooldal__valaszto-cim">
-                Válassz egyet az alábbi szintek közül:
-            </div>         
-    
-            <div class="section__kartya">
-              <div class="kartya" id="kartya_01">
-                <div class="kartya__kep">
-                  <div class="kartya__kep-nyuszi">
-                    <div class="nyuszi_kep"></div>
-                    <div class="felirat">Kezdő 1</div>
-                  </div>
-                </div>
-              </div>
-              <div class="kartya" id="kartya_02">
-                <div class="kartya__kep">
-                  <div class="kartya__kep-csacsi">
-                    <div class="csacsi_kep"></div>
-                    <div class="felirat">Kezdő 2</div>
-                  </div>
-                </div>
-              </div>
-              <div class="kartya" id="kartya_03">
-                <div class="kartya__kep">
-                  <div class="kartya__kep-maci">
-                    <div class="maci_kep"></div>
-                    <div class="felirat">Haladó 1</div>
-                  </div>
-                </div>
-              </div>
-              <div class="kartya" id="kartya_04">
-                <div class="kartya__kep">
-                  <div class="kartya__kep-tigris">
-                    <div class="tigris_kep"></div>
-                    <div class="felirat">Haladó 2</div>
-                  </div>
-                </div>
-              </div>
-              <div class="kartya" id="kartya_05">
-                <div class="kartya__kep">
-                  <div class="kartya__kep-oroszlan">
-                    <div class="oroszlan_kep"></div>
-                    <div class="felirat">Profi 1</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>       
-      </div>
+        </div>           
     </section>
 
-    <section class="wrapper2">
-      <div class="feladatoldal">
-        <div class="feladatoldal__navigacio">
-          <div class="feladatoldal__navigacio-nyil">
-            <ion-icon size="large" name="arrow-round-back"></ion-icon>
-          </div>
+    <div class="container_hatterKarakter">
+        <div class="hatterKarakter">
+          <div class="beszolasKep"></div>
+          <p class="beszolas" id="beszolas"></p>
         </div>
-
-        <div class="feladatoldal__kezeles">
-          <div class="feladatoldal__kezeles-kartya">
-            <div class="kartya__test">
-              <div class="kartya__test-kep"></div>
-              <div class="kartya__test-gomb">
-                <ion-icon
-                  class="play"
-                  id="start-tick"
-                  size="large"
-                  name="play"
-                ></ion-icon>
-                <ion-icon
-                  class="pause"
-                  id="stop-tick"
-                  size="large"
-                  name="pause"
-                ></ion-icon>
-              </div>
-            </div>
-          </div>
-          <div class="feladatoldal__kezeles-informaciok">
-            <div class="info">
-              <p>Eltelt idő:</p>
-              <p class="ertek" id="tick">00:00</p>
-            </div>
-            <div class="info">
-              <p>Billentyű:</p>
-              <p class="ertek" id="billentyuk">0/0</p>
-            </div>
-            <div class="info">
-              <p>Hibák:</p>
-              <p class="ertek" id="hiba">0</p>
-            </div>
-            <div class="info">
-              <p>Értékelés:</p>
-              <p class="ertek" id="arany">0%</p>
-            </div>
-            <div class="info">
-              <p>Érdemjegy:</p>
-              <p class="ertek" id="erdemjegy"></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="feladatoldal__feldolgozas">
-          <div class="feladatoldal__feldolgozas-kiiratas">
-            <div class="kiir" id="kiir"></div>
-            <div class="betu" id="betu"></div>
-          </div>
-          <div class="feladatoldal__feldolgozas-bevitel">
-            <div class="begepel" id="begepel"></div>
-          </div>
-          <p></p>
-        </div>
-      </div>
-    </section>
-    <section class="wrapper3">
-      <div class="hatterKarakter">
-        <div class="beszolasKep"></div>
-        <p class="beszolas" id="beszolas"></p>
-      </div>
-    </section>
+    </div>
 
     <script src="js/allatok.js"></script>
     <script src="js/js.js"></script>

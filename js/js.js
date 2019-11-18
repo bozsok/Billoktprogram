@@ -1,36 +1,26 @@
 ﻿var activeKartya, tomb, tovabbMegy, szamlalo, fajlTartalom, billentyuk, erdemjegy, ido, sec, min, karakter, szoveg, kep;
+var ertek = 0;
 var i = 0;
 var hiba = 0;
 var begepeltSzoveg = [];
 var kiirtSzoveg = [];
 var arany = 0;
 
+document.querySelector('.fooldal').scrollIntoView();
+
 tovabbMegy = true;
 //Eltüntetjük a Pause gombot
 document.querySelector('.pause').style.display = 'none';
-document.querySelector('.wrapper2').classList.add('eltuntet');
-document.querySelector('.help').classList.add('eltuntet');
 
-//információra kattintás
-document.querySelector('.signs').addEventListener('click', function () {
-    document.querySelector('.help').style.cssText = 'display: flex; transform: translateX(0)';
-    document.querySelector('.fooldal__kezdolap').style.cssText = 'display: none; transform: translateX(-120rem)';
-});
-
-//információ-visszanyilra kattintunk
-document.querySelector('.help__navigacio-nyil').addEventListener('click', function () {
-    document.querySelector('.help').style.cssText = 'display: none; transform: translateX(120rem)';
-    document.querySelector('.fooldal__kezdolap').style.cssText = 'display: block; transform: translateX(0)';
-});
-
-
-
-//Kártyakattintás műveletei
+//Kártyakattintás műveletei - eltoljuk az oldalt, hogy megjelenhessen a másik
 function kartyaKattintas() {
-    document.querySelector('.wrapper1').classList.remove('megjelenitGrid');
-    document.querySelector('.wrapper1').classList.add('eltuntet');
-    document.querySelector('.wrapper2').classList.remove('eltuntet');
-    document.querySelector('.wrapper2').classList.add('megjelenitGrid');
+    if (ertek == 0) {
+        document.querySelector('.fooldal').style.transform = "translateX(120rem)";
+        document.querySelector('.feladatoldal').style.transform = "translateX(120rem)";
+        ertek = 120;
+    } else {
+        console.log('középső bal bibi van');
+    }
     document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.remove('alap');
 }
 
@@ -75,17 +65,37 @@ document.getElementById('kartya_05').addEventListener('click', function () {
 
 //Visszanyilra kattintunk
 document.querySelector('.feladatoldal__navigacio-nyil').addEventListener('click', function () {
-    document.querySelector('.wrapper1').classList.remove('eltuntet');
-    document.querySelector('.wrapper1').classList.add('megjelenitGrid');
-    document.querySelector('.wrapper2').classList.remove('megjelenitGrid');
-    document.querySelector('.wrapper2').classList.add('eltuntet');
+    if (ertek == 120) {
+        document.querySelector('.fooldal').style.transform = "translateX(0)";
+        document.querySelector('.feladatoldal').style.transform = "translateX(0)";
+        ertek = 0;
+    }
     document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.remove('szint_' + activeKartya);
     document.querySelector('.feladatoldal__kezeles-kartya .kartya__test-kep').classList.add('alap');
 
     tisztit();
 });
 
+//információra kattintunk
+document.querySelector('.signs').addEventListener('click', function () {
+    if (ertek == 0) {
+        document.querySelector('.fooldal').style.transform = "translateX(-120rem)";
+        document.querySelector('.help').style.transform = "translateX(-120rem)";
+        ertek = 120;
+    } else {
+        console.log('középső bal bibi van');
+    }
+});
+//információs oldalon lévő visszanyílra kattintunk
+document.querySelector('.help__navigacio-nyil').addEventListener('click', function () {
+    if (ertek == 120) {
+        document.querySelector('.fooldal').style.transform = "translateX(0)";
+        document.querySelector('.help').style.transform = "translateX(0)";
+        ertek = 0;
+    }
+});
 
+//Play, Pause gombok eseményei
 document.querySelector('.play').addEventListener('click', play);
 document.querySelector('.play').addEventListener('click', idoSzamlalo);
 document.querySelector('.pause').addEventListener('click', pause);
@@ -364,7 +374,6 @@ function idoSzamlalo() {
                 sec = szamlalo - ((szamlalo / 60) * 60);
             }
             if (sec < 10 && min < 10) {
-                //document.getElementById('tick').innerHTML = '0' + min + ':' + '0' + sec;
                 document.getElementById('tick').innerHTML = `0${min}:0` + sec;
             }
             if (sec >= 10 && min < 10) {
@@ -377,8 +386,8 @@ function idoSzamlalo() {
                 document.getElementById('tick').innerHTML = min + ':' + sec;
             }
 
-            if (szamlalo == 300) {
-                szoveg = "Figyelj, mert most vagyunk az időnk felénél!"; //...kiírassam ezt a szöveget
+            if (szamlalo == 3) {
+                szoveg = "Figyelj, mert most vagyunk az időnk felénél!"; //...kiírassam ezt a szöveget                
                 //Ha nem indítjuk el a billentyűleütéssel a programot, akkor is ki kell rajzolnia egy állatot!
                 if (activeKartya == 1) {
                     document.querySelector('.beszolasKep').innerHTML = nyuszi_alap;
@@ -437,16 +446,16 @@ function generalj(hossz) {
 //Karakterek program működése közben
 var idoMegint = 0;
 function beszolas() {
-    document.querySelector('.wrapper3').style.display = "grid";
+    document.querySelector('.container_hatterKarakter').style.cssText = "display: grid; z-index: 2";
     idoMegint = szamlalo; //megadom a számláló értékét egy mésik változónak
     clearInterval(ido); //megállítom az időt
     tovabbMegy = false; //nem engedek gépelni
     document.getElementById('beszolas').innerHTML = szoveg;
-    document.querySelector('.hatterKarakter').style.cssText = "display: block; opacity: 1; z-index: 3"; //beállítjuk a háttérszínt
+    document.querySelector('.hatterKarakter').style.cssText = "display: block; opacity: 1; z-index: 2"; //beállítjuk a háttérszínt
 
     karakter = setTimeout(function () { //3mp múlva eltüntetem a karaktert...
         clearTimeout(karakter); //eltüntetem a karaktert...
-        document.querySelector('.wrapper3').style.display = "none";
+        document.querySelector('.container_hatterKarakter').style.cssText = "display: none; z-index: 0";
         szamlalo = idoMegint; //visszaadom a számláló értékét a megállítás előttről
         idoSzamlalo(); //elindítom az időt
         if (szamlalo == 600 || begepeltSzoveg.length == fajlTartalom.length) { //ha lejárt a 10 perc, vagy végére értünk a szövegnek
@@ -830,7 +839,7 @@ function beszolashoz() {
             document.querySelector('.beszolasKep').innerHTML = csacsi_harmas;
         } else if (activeKartya == 3) {
             document.querySelector('.beszolasKep').innerHTML = maci_harmas;
-            szoveg = "Még én is ügyesebben ütném le a billentyűket a nagy mancsommal!";
+            szoveg = "Ennél még én is jobb vagyok a nagy mancsommal!";
         } else if (activeKartya == 4) {
             document.querySelector('.beszolasKep').innerHTML = tigris_harmas;
         } else if (activeKartya == 5) {
