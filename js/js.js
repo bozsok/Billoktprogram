@@ -10,7 +10,7 @@ document.querySelector('.fooldal').scrollIntoView();
 
 tovabbMegy = true;
 //Eltüntetjük a Pause gombot
-document.querySelector('.pause').style.display = 'none';
+document.querySelector('#stop-tick').style.display = 'none';
 
 //Kártyakattintás műveletei - eltoljuk az oldalt, hogy megjelenhessen a másik
 function kartyaKattintas() {
@@ -29,6 +29,7 @@ document.getElementById('kartya_01').addEventListener('click', function () {
     activeKartya = 1;
     document.querySelector('.kartya__test-kep').innerHTML = nyuszi; //SVG beillesztése
     document.querySelector('.kartya__test-kep').style.backgroundColor = '#dfecf1'; //háttérszín megadása
+    document.querySelector('.kartya__test-kep #nyuszi').style.cssText = 'width: 60%; margin-left: 0rem;';   
     kartyaKattintas();
     fajlBeolvasas();
 });
@@ -36,6 +37,7 @@ document.getElementById('kartya_02').addEventListener('click', function () {
     activeKartya = 2;
     document.querySelector('.kartya__test-kep').innerHTML = csacsi;
     document.querySelector('.kartya__test-kep').style.backgroundColor = '#dfebf7';
+    document.querySelector('.kartya__test-kep #csacsi').style.cssText = 'width: 80%; margin-left: 0rem;';
     kartyaKattintas();
     fajlBeolvasas();
 });
@@ -43,6 +45,7 @@ document.getElementById('kartya_03').addEventListener('click', function () {
     activeKartya = 3;
     document.querySelector('.kartya__test-kep').innerHTML = maci;
     document.querySelector('.kartya__test-kep').style.backgroundColor = '#f0dbcd';
+    document.querySelector('.kartya__test-kep #maci').style.cssText = 'width: 80%; margin-left: 0rem;';
     kartyaKattintas();
     fajlBeolvasas();
 });
@@ -50,7 +53,7 @@ document.getElementById('kartya_04').addEventListener('click', function () {
     activeKartya = 4;
     document.querySelector('.kartya__test-kep').innerHTML = tigris;
     document.querySelector('.kartya__test-kep').style.backgroundColor = '#fbefe1';
-    document.querySelector('.kartya__test-kep #tigris').style.cssText = 'width: 120%; margin-left: -3rem;'; //további igazítások
+    document.querySelector('.kartya__test-kep #tigris').style.cssText = 'width: 120%; margin-left: -3rem; margin-bottom: 5rem;'; //további igazítások
     kartyaKattintas();
     fajlBeolvasas();
 });
@@ -58,7 +61,7 @@ document.getElementById('kartya_05').addEventListener('click', function () {
     activeKartya = 5;
     document.querySelector('.kartya__test-kep').innerHTML = oroszlan;
     document.querySelector('.kartya__test-kep').style.backgroundColor = '#f0e8e2';
-    document.querySelector('.kartya__test-kep #oroszlan').style.marginLeft = '-1rem';
+    document.querySelector('.kartya__test-kep #oroszlan').style.cssText = 'width: 110%; margin-left: -4rem;';    
     kartyaKattintas();
     fajlBeolvasas();
 });
@@ -87,7 +90,7 @@ document.querySelector('.signs').addEventListener('click', function () {
     }
 });
 //információs oldalon lévő visszanyílra kattintunk
-document.querySelector('.help__nyil-jobb').addEventListener('click', function () {
+document.querySelector('#help__nyil-jobb').addEventListener('click', function () {
     if (ertek == 120) {
         document.querySelector('.fooldal').style.transform = "translateX(0)";
         document.querySelector('.help').style.transform = "translateX(0)";
@@ -96,34 +99,47 @@ document.querySelector('.help__nyil-jobb').addEventListener('click', function ()
 });
 
 //Play, Pause gombok eseményei
-document.querySelector('.play').addEventListener('click', play);
-document.querySelector('.play').addEventListener('click', idoSzamlalo);
-document.querySelector('.pause').addEventListener('click', pause);
-document.querySelector('.pause').addEventListener('click', idoMegallito);
+document.querySelector('#start-tick').addEventListener('click', play);
+document.querySelector('#start-tick').addEventListener('click', idoSzamlalo);
+document.querySelector('#stop-tick').addEventListener('click', pause);
+document.querySelector('#stop-tick').addEventListener('click', idoMegallito);
 
 //Play gomb kattintásának műveletei
 function play() {
     document.querySelector('.feladatoldal__navigacio-nyil').classList.remove('aktiv');
     document.querySelector('.feladatoldal__navigacio-nyil').classList.add('inaktiv');
-    document.querySelector('.play').style.display = 'none';
-    document.querySelector('.pause').style.display = 'block';
+    document.querySelector('#start-tick').style.display = 'none';
+    document.querySelector('#stop-tick').style.display = 'block';
     document.querySelector('.kartya__test').classList.add('arnyek');
     document.querySelector('.betu').classList.add("betu_jon");
     tisztit();
     tovabbMegy = true;
     betuBeolvasas();
 }
+
+document.querySelector('#start-tick').addEventListener('mouseover', function () {
+    document.querySelector('.kartya__test-gomb').style.cssText = 'background-color: rgba(0,0,17, 0.3); transition: 0.3s;';
+});
+document.querySelector('#start-tick').addEventListener('mouseout', function () {
+    document.querySelector('.kartya__test-gomb').style.cssText = 'background-color: rgba(0,0,17, 0.15); transition: 0.3s;';
+});
 //Pause gomb kattintásának műveletei
 function pause() {
     document.querySelector('.feladatoldal__navigacio-nyil').classList.remove('inaktiv');
     document.querySelector('.feladatoldal__navigacio-nyil').classList.add('aktiv');
-    document.querySelector('.pause').style.display = 'none';
-    document.querySelector('.play').style.display = 'block';
+    document.querySelector('#stop-tick').style.display = 'none';
+    document.querySelector('#start-tick').style.display = 'block';
     document.querySelector(".kartya__test").classList.remove('arnyek');
     document.querySelector('.betu').classList.remove("betu_jon");
     i = 0; //Ha újra kezdjük a szintet, akkor 0-ról számoljon
     tovabbMegy = false; //Nem lehet a gombnyomást követően gépelni
 }
+document.querySelector('#stop-tick').addEventListener('mouseover', function () {
+    document.querySelector('.kartya__test-gomb').style.cssText = 'background-color: rgba(0,0,17, 0.3); transition: 0.3s;';
+});
+document.querySelector('#stop-tick').addEventListener('mouseout', function () {
+    document.querySelector('.kartya__test-gomb').style.cssText = 'background-color: rgba(0,0,17, 0.15); transition: 0.3s;';
+});
 
 //Fájlbeolvasás kártyakattintásra
 function fajlBeolvasas() {

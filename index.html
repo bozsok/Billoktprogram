@@ -12,6 +12,7 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link
       rel="shortcut icon"
       type="image/png"
@@ -55,11 +56,6 @@
     />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"
-    ></script>
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -76,7 +72,7 @@
         <div class="help" id="help">
             <div class="help__szoveg">                
                 <p class="help__cim">BILLENTYŰZETGYAKORLÓ <span>PROGRAM</span></p>
-                <p><ion-icon class="help__nyil-jobb" size="large" name="ios-arrow-dropright-circle"></ion-icon></p>
+                <p><i id="help__nyil-jobb" class="fas fa-arrow-circle-right"></i></p>
                 <p>A program a billentyűzet gombjainak megismerését szolgálja, segíti a betűk, számok, jelek helyének megtalálását a billentyűzeten.<br>A kezdőképen öt kártya látható, amely öt szintet jelent. A szintek külön-külön 400 karakter leütéséből állnak, kivéve a Profi szintet. Az első szint a <i>Kezdő 1</i>, ahol csak kisbetűk leütése jelenti a kihívást. A <i>Kezdő 2</i> szinten már ehhez jönnek a nagybetűk, a <i>Haladó 1</i> szinten az előzőeket a számok is kiegészítik. A <i>Haladó 2</i> szint az egyik legnehezebb, kis- és nagybetűk, számok mellett jeleket is vár a program. A <i>Profi</i> esetén már teljes mondatokat írunk betűnként.<br><br>A megfelelő szintet a kártyára való kattintással kezdjük!<br><br>A következő képernyőn előzetesen belepillanthatunk a leütésre váró 400 karakterbe, amely a játék indítását követően az első gomb megnyomásakor eltűnik. A játékot a Play gomb megnyomásával kezdhetjük. Az óra elkezd számolni, a befejezéshez 10 perc áll rendelkezésünkre. A program figyelmeztet, ha az időnk fele letelik, illetve az utolsó perc kezdetekor is. A játékot végleg a Pause gommbal állítjuk meg, ekkor válik lehetővé, hogy visszalépjünk a kezdőoldalra.<br>A program kijelzi a leütott gombokat, a hibák számát és ebből százalékosan értékel. Felül jelennek meg a kért, alul az általunk begépelt karakterek. Ha ezek nem egyeznek, tehát hibázunk, akkor a program azt pirossal jelzi.<br><br>Az eredményességünkről a választott szintnek megfelelő állat is folyamatosan tájékoztat minket egy-egy megjegyzéssel, miközben az idő megáll.<br><br>Jó szórakozást!
                 </p>
             </div>                      
@@ -90,7 +86,7 @@
                 </div>
       
                 <div class="signs">
-                  <ion-icon size="large" name="information-circle"></ion-icon>
+                  <i class="fas fa-info-circle"></i>
                 </div>
       
                 <div class="fooldal__container">        
@@ -147,7 +143,7 @@
         <!-- jobb -->
         <div class="feladatoldal">
             <div class="feladatoldal__navigacio-nyil">
-              <ion-icon name="ios-arrow-dropleft-circle"></ion-icon>
+              <i class="fas fa-arrow-circle-left"></i>
             </div>            
       
               <div class="feladatoldal__kezeles">
@@ -155,18 +151,8 @@
                   <div class="kartya__test">
                     <div class="kartya__test-kep"></div>
                     <div class="kartya__test-gomb">
-                      <ion-icon
-                        class="play"
-                        id="start-tick"
-                        size="large"
-                        name="play"
-                      ></ion-icon>
-                      <ion-icon
-                        class="pause"
-                        id="stop-tick"
-                        size="large"
-                        name="pause"
-                      ></ion-icon>
+                      <i id="start-tick" class="fas fa-play-circle"></i>
+                      <i id="stop-tick" class="fas fa-stop-circle"></i>
                     </div>
                   </div>
                 </div>

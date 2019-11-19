@@ -53,24 +53,24 @@ body {
     margin-bottom: 3rem;
     font-size: 3rem;
     text-align: center; }
-  .help__nyil-jobb {
-    position: absolute;
-    top: 3.5rem;
-    right: 2rem;
-    display: inline-block;
-    color: #edcebe;
-    font-size: 3.5rem;
-    cursor: pointer;
-    transition: 0.3s;
-    color: #edcebe; }
-    .help__nyil-jobb:hover {
-      fill: #bc4915; }
   .help__szoveg {
     padding: 3rem 7rem 3rem 3rem;
     font-size: 2rem;
     text-align: justify; }
     .help__szoveg span {
       font-weight: 700; }
+
+#help__nyil-jobb {
+  position: absolute;
+  top: 3.5rem;
+  right: 2rem;
+  display: inline-block;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #edcebe; }
+  #help__nyil-jobb:hover {
+    color: #bc4915; }
 
 .fooldal {
   position: relative;
@@ -110,6 +110,7 @@ body {
   top: 8rem;
   left: 3rem;
   color: #edcebe;
+  font-size: 3rem;
   transition: 0.3s;
   cursor: pointer; }
   .signs:hover {
@@ -191,7 +192,7 @@ body {
     display: inline-block;
     margin: 2rem 0 0 2rem;
     color: #edcebe;
-    font-size: 3.5rem;
+    font-size: 3rem;
     cursor: pointer;
     transition: 0.3s; }
     .feladatoldal__navigacio-nyil:hover {
@@ -209,50 +210,51 @@ body {
       align-items: center;
       justify-content: center; }
       .feladatoldal__kezeles-kartya .kartya__test {
+        position: relative;
         margin-left: 5rem;
-        width: 20rem;
-        height: 29rem;
+        margin-top: 2rem;
+        width: 19rem;
+        height: 28rem;
         box-shadow: 0px 2px 8px #dad0d0;
-        background-color: #edcebe;
         transition: 0.5s;
         border-radius: 1rem;
         display: flex;
         flex-direction: column; }
-        .feladatoldal__kezeles-kartya .kartya__test:hover {
-          cursor: auto;
-          transform: none; }
         .feladatoldal__kezeles-kartya .kartya__test-kep {
-          padding-top: 2rem;
-          height: 20rem;
+          height: 100%;
           width: auto;
-          border-top-left-radius: 1rem;
-          border-top-right-radius: 1rem;
+          border-radius: 1rem;
           overflow: hidden;
-          background-color: red; }
-          .feladatoldal__kezeles-kartya .kartya__test-kep svg {
-            height: 120%;
-            width: 100%; }
-        .feladatoldal__kezeles-kartya .kartya__test-gomb {
-          height: 8rem;
           display: flex;
           justify-content: center;
           align-items: center;
-          border-bottom-left-radius: 1rem;
-          border-bottom-right-radius: 1rem; }
-          .feladatoldal__kezeles-kartya .kartya__test-gomb .play {
+          background-color: #fff; }
+        .feladatoldal__kezeles-kartya .kartya__test-gomb {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          height: 100%;
+          justify-content: center;
+          align-items: center;
+          background-color: rgba(43, 43, 43, 0.15);
+          border-radius: 1rem; }
+          .feladatoldal__kezeles-kartya .kartya__test-gomb #start-tick {
             cursor: pointer;
-            padding: 0.8rem 2.8rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #bc4915;
-            border: 1px solid #bc4915;
-            border-radius: 3rem; }
-          .feladatoldal__kezeles-kartya .kartya__test-gomb .pause {
+            font-size: 10rem;
+            color: #fff;
+            border-radius: 3rem;
+            transition: .3s; }
+            .feladatoldal__kezeles-kartya .kartya__test-gomb #start-tick:hover {
+              transform: scale(1.2);
+              transition: .3s; }
+          .feladatoldal__kezeles-kartya .kartya__test-gomb #stop-tick {
             cursor: pointer;
-            padding: 0.8rem 2.8rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #bc4915;
-            border: 1px solid #bc4915;
-            border-radius: 3rem; }
+            font-size: 10rem;
+            color: #fff;
+            border-radius: 3rem;
+            transition: .3s; }
+            .feladatoldal__kezeles-kartya .kartya__test-gomb #stop-tick:hover {
+              transform: scale(1.2); }
     .feladatoldal__kezeles-informaciok {
       width: 100%;
       height: 50%;
