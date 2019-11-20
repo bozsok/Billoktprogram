@@ -243,16 +243,16 @@ body {
             font-size: 10rem;
             color: #fff;
             border-radius: 3rem;
-            transition: .3s; }
+            transition: 0.3s; }
             .feladatoldal__kezeles-kartya .kartya__test-gomb #start-tick:hover {
               transform: scale(1.2);
-              transition: .3s; }
+              transition: 0.3s; }
           .feladatoldal__kezeles-kartya .kartya__test-gomb #stop-tick {
             cursor: pointer;
             font-size: 10rem;
             color: #fff;
             border-radius: 3rem;
-            transition: .3s; }
+            transition: 0.3s; }
             .feladatoldal__kezeles-kartya .kartya__test-gomb #stop-tick:hover {
               transform: scale(1.2); }
     .feladatoldal__kezeles-informaciok {
@@ -351,7 +351,7 @@ body {
   display: grid; }
 
 .inaktiv {
-  color: grey;
+  color: #eee;
   pointer-events: none; }
 
 .aktiv {
