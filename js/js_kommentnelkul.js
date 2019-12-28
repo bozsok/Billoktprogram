@@ -393,6 +393,7 @@ function generalj(hossz) {
 }
 var idoMegint = 0;
 function beszolas() {
+  if (document.getElementById('jnegyzet').checked == true) {
     document.querySelector('.container_hatterKarakter').style.cssText = "display: grid; z-index: 2";
     idoMegint = szamlalo; 
     clearInterval(ido); 
@@ -413,6 +414,7 @@ function beszolas() {
         document.getElementById('beszolas').innerHTML = "";
         document.querySelector('.hatterKarakter').style.cssText = "display: none; opacity: 0; z-index: 0"; 
     }, 3000);
+  }
 }
 function beszolashoz() {
     if (maradtBetu == 50 && arany >= 90) {

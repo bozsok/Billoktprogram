@@ -53,7 +53,7 @@ document.getElementById('kartya_04').addEventListener('click', function () {
     activeKartya = 4;
     document.querySelector('.kartya__test-kep').innerHTML = tigris;
     document.querySelector('.kartya__test-kep').style.backgroundColor = '#fbefe1';
-    document.querySelector('.kartya__test-kep #tigris').style.cssText = 'width: 120%; margin-left: -3rem; margin-bottom: 5rem;'; //további igazítások
+    document.querySelector('.kartya__test-kep #tigris').style.cssText = 'width: 100%; margin-left: 1rem;';
     kartyaKattintas();
     fajlBeolvasas();
 });
