@@ -279,6 +279,15 @@ body {
         .feladatoldal__kezeles-informaciok .info .ertek {
           font-weight: 700;
           color: #3d84c5; }
+      .feladatoldal__kezeles-informaciok .jelolonegyzet {
+        margin-left: 4rem;
+        width: 65%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        .feladatoldal__kezeles-informaciok .jelolonegyzet #jnegyzet {
+          transform: scale(1.4);
+          outline: none; }
   .feladatoldal__feldolgozas {
     width: 100%;
     height: 100%;

@@ -462,28 +462,31 @@ function generalj(hossz) {
 //Karakterek program működése közben
 var idoMegint = 0;
 function beszolas() {
-    document.querySelector('.container_hatterKarakter').style.cssText = "display: grid; z-index: 2";
-    idoMegint = szamlalo; //megadom a számláló értékét egy mésik változónak
-    clearInterval(ido); //megállítom az időt
-    tovabbMegy = false; //nem engedek gépelni
-    document.getElementById('beszolas').innerHTML = szoveg;
-    document.querySelector('.hatterKarakter').style.cssText = "display: block; opacity: 1; z-index: 2"; //beállítjuk a háttérszínt
+    if (document.getElementById('jnegyzet').checked == true) { //A jelölőnégyzet bepipálásakor van csak beszólás - alapesetben bepipálva
+        document.querySelector('.container_hatterKarakter').style.cssText = "display: grid; z-index: 2";
+        idoMegint = szamlalo; //megadom a számláló értékét egy mésik változónak
+        clearInterval(ido); //megállítom az időt
+        tovabbMegy = false; //nem engedek gépelni
+        document.getElementById('beszolas').innerHTML = szoveg;
+        document.querySelector('.hatterKarakter').style.cssText = "display: block; opacity: 1; z-index: 2"; //beállítjuk a háttérszínt
 
-    karakter = setTimeout(function () { //3mp múlva eltüntetem a karaktert...
-        clearTimeout(karakter); //eltüntetem a karaktert...
-        document.querySelector('.container_hatterKarakter').style.cssText = "display: none; z-index: 0";
-        szamlalo = idoMegint; //visszaadom a számláló értékét a megállítás előttről
-        idoSzamlalo(); //elindítom az időt
-        if (szamlalo == 600 || begepeltSzoveg.length == fajlTartalom.length) { //ha lejárt a 10 perc, vagy végére értünk a szövegnek
-            tovabbMegy = false; //nem engedek tovább gépelni
-            idoMegallito(); //megállítom az időt
-        } else { //ellenkező esetben
-            tovabbMegy = true; //újra engedek gépelni
-        }
-        document.getElementById('beszolas').innerHTML = "";
-        document.querySelector('.hatterKarakter').style.cssText = "display: none; opacity: 0; z-index: 0"; //levesszük a háttérszint
-    }, 3000);
+        karakter = setTimeout(function () { //3mp múlva eltüntetem a karaktert...
+            clearTimeout(karakter); //eltüntetem a karaktert...
+            document.querySelector('.container_hatterKarakter').style.cssText = "display: none; z-index: 0";
+            szamlalo = idoMegint; //visszaadom a számláló értékét a megállítás előttről
+            idoSzamlalo(); //elindítom az időt
+            if (szamlalo == 600 || begepeltSzoveg.length == fajlTartalom.length) { //ha lejárt a 10 perc, vagy végére értünk a szövegnek
+                tovabbMegy = false; //nem engedek tovább gépelni
+                idoMegallito(); //megállítom az időt
+            } else { //ellenkező esetben
+                tovabbMegy = true; //újra engedek gépelni
+            }
+            document.getElementById('beszolas').innerHTML = "";
+            document.querySelector('.hatterKarakter').style.cssText = "display: none; opacity: 0; z-index: 0"; //levesszük a háttérszint
+        }, 3000);
+    }
 }
+
 
 function beszolashoz() {
     //hibátlanul és kevés hibával (5-ös és 4-es jegyekhez)
