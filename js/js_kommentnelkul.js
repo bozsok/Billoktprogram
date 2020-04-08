@@ -7,6 +7,37 @@ var kiirtSzoveg = [];
 var arany = 0;
 document.querySelector('.fooldal').scrollIntoView();
 tovabbMegy = true;
+if (document.addEventListener) {
+    document.addEventListener('contextmenu', function (e) {
+        alert("Nincs hekkelés jobb gombbal :)"); //here you draw your own menu
+        e.preventDefault();
+    }, false);
+} else {
+    document.attachEvent('oncontextmenu', function () {
+        alert("Mondom, nincs hekkelés jobb gombbal :D");
+        window.event.returnValue = false;
+    });
+}
+window.onload = function () {
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function (e) {
+        // "F12" key
+        if (event.keyCode == 123) {
+            disabledEvent(e);
+        }
+    }, false);
+    function disabledEvent(e) {
+        if (e.stopPropagation) {
+            e.stopPropagation();
+        } else if (window.event) {
+            window.event.cancelBubble = true;
+        }
+        e.preventDefault();
+        return false;
+    }
+}
 document.querySelector('#stop-tick').style.display = 'none';
 function kartyaKattintas() {
     if (ertek == 0) {
@@ -46,7 +77,7 @@ document.getElementById('kartya_04').addEventListener('click', function () {
     activeKartya = 4;
     document.querySelector('.kartya__test-kep').innerHTML = tigris;
     document.querySelector('.kartya__test-kep').style.backgroundColor = '#fbefe1';
-    document.querySelector('.kartya__test-kep #tigris').style.cssText = 'width: 120%; margin-left: -3rem; margin-bottom: 5rem;'; 
+    document.querySelector('.kartya__test-kep #tigris').style.cssText = 'width: 100%; margin-left: 1rem;'; 
     kartyaKattintas();
     fajlBeolvasas();
 });
@@ -278,17 +309,18 @@ function betuBeolvasas() {
                     billentyuk = maradtBetu + '/' + fajlTartalom.length;
                     document.getElementById('billentyuk').innerHTML = billentyuk;
                     document.getElementById('hiba').innerHTML = hiba; 
-                    arany = (((maradtBetu - hiba) / maradtBetu) * 100).toFixed(2); 
-                    document.getElementById('arany').innerHTML = arany + '%'; 
-                    if (arany <= 29.99) {
+                    arany = (((maradtBetu - hiba) / maradtBetu) * 100).toFixed(2);
+                    osszArany = (((maradtBetu - hiba) / fajlTartalom.length) * 100).toFixed(2); 
+                    document.getElementById('arany').innerHTML = osszArany + '%'; 
+                    if (osszArany<= 29.99) {
                         document.getElementById('erdemjegy').innerHTML = 1;
-                    } else if (arany >= 30 && arany <= 54.99) {
+                    } else if (osszArany>= 30 && osszArany<= 54.99) {
                         document.getElementById('erdemjegy').innerHTML = 2;
-                    } else if (arany >= 55 && arany <= 74.99) {
+                    } else if (osszArany >= 55 && osszArany <= 74.99) {
                         document.getElementById('erdemjegy').innerHTML = 3;
-                    } else if (arany >= 75 && arany <= 89.99) {
+                    } else if (osszArany >= 75 && osszArany <= 89.99) {
                         document.getElementById('erdemjegy').innerHTML = 4;
-                    } else if (arany >= 90) document.getElementById('erdemjegy').innerHTML = 5;
+                    } else if (osszArany >= 90) document.getElementById('erdemjegy').innerHTML = 5;
                     beszolashoz();
                 }
             }

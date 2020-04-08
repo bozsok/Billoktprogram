@@ -5,8 +5,43 @@ var hiba = 0;
 var begepeltSzoveg = [];
 var kiirtSzoveg = [];
 var arany = 0;
+var osszArany = 0;
 
 document.querySelector('.fooldal').scrollIntoView();
+
+//Helyi menü letiltársa
+if (document.addEventListener) {
+    document.addEventListener('contextmenu', function (e) {
+        alert("Nincs hekkelés jobb gombbal :)"); //here you draw your own menu
+        e.preventDefault();
+    }, false);
+} else {
+    document.attachEvent('oncontextmenu', function () {
+        alert("Mondom, nincs hekkelés jobb gombbal :D");
+        window.event.returnValue = false;
+    });
+}
+//F12 gomb letiltása
+window.onload = function () {
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function (e) {
+        // "F12" key
+        if (event.keyCode == 123) {
+            disabledEvent(e);
+        }
+    }, false);
+    function disabledEvent(e) {
+        if (e.stopPropagation) {
+            e.stopPropagation();
+        } else if (window.event) {
+            window.event.cancelBubble = true;
+        }
+        e.preventDefault();
+        return false;
+    }
+}
 
 tovabbMegy = true;
 //Eltüntetjük a Pause gombot
@@ -326,17 +361,19 @@ function betuBeolvasas() {
                     document.getElementById('hiba').innerHTML = hiba; //hibák számát kiíratom
                     //Arányszámolás                    
                     arany = (((maradtBetu - hiba) / maradtBetu) * 100).toFixed(2); //(Helyesen leírt karakter) / (összes leütött karakter) * 100
-                    document.getElementById('arany').innerHTML = arany + '%'; //kiíratom a megfelelő arányt                    
+                    osszArany = (((maradtBetu - hiba) / fajlTartalom.length) * 100).toFixed(2); //(Helyesen leírt karakter) / (összes karakter) * 100 -> Ahelyes érdemjegy kiíratásához kell!
+                    //document.getElementById('arany').innerHTML = arany + '%'; //kiíratom a megfelelő arányt
+                    document.getElementById('arany').innerHTML = osszArany + '%'; //kiíratom a 
                     //Érdemjegy számítása
-                    if (arany <= 29.99) {
+                    if (osszArany <= 29.99) {
                         document.getElementById('erdemjegy').innerHTML = 1;
-                    } else if (arany >= 30 && arany <= 54.99) {
+                    } else if (osszArany >= 30 && osszArany <= 54.99) {
                         document.getElementById('erdemjegy').innerHTML = 2;
-                    } else if (arany >= 55 && arany <= 74.99) {
+                    } else if (osszArany >= 55 && osszArany <= 74.99) {
                         document.getElementById('erdemjegy').innerHTML = 3;
-                    } else if (arany >= 75 && arany <= 89.99) {
+                    } else if (osszArany >= 75 && osszArany <= 89.99) {
                         document.getElementById('erdemjegy').innerHTML = 4;
-                    } else if (arany >= 90) document.getElementById('erdemjegy').innerHTML = 5;
+                    } else if (osszArany >= 90) document.getElementById('erdemjegy').innerHTML = 5;
 
                     beszolashoz();
                 }
